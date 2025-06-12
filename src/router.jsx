@@ -9,6 +9,10 @@ import SignUp from "./pages/SingUp";
 import Success from "./pages/Success";
 import Statements from "./pages/Statements";
 
+import Contact from "./pages/Contact/Contact";
+import { handleSubmit } from "./pages/Contact/action";
+import Thanks from "./pages/Contact/Thanks";
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -42,9 +46,18 @@ const router = createBrowserRouter([
                 element: <Statements/>
             },
             {
+                path:"/contact",
+                element: <Contact/>,
+                action : handleSubmit,
+            },
+            {
+                path: '/thanks',
+                element: <Thanks/>
+            },
+            {
                path: "*",
                element: <NotFound/>
-            }
+            },
             
         ]
     }  
