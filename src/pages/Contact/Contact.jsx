@@ -1,10 +1,5 @@
 import './contact.scss'
 import { Form, useActionData } from 'react-router'
-import { z } from "zod/v4";
-
-
-
-////**************************************************************************************************** */
 
 
 export default function Contact() {
@@ -40,7 +35,7 @@ export default function Contact() {
                     <span style={{ color: 'red' }}>*</span>
                     </label> 
                 <input type="text" name="subject" id="subject"/>
-                <p className="error">{errors && errors?.email?.errors[0]}</p>
+                <p className="error">{errors && errors?.subject?.errors[0]}</p>
             </div>
 
             <div className="mandatory">
