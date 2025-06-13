@@ -1,12 +1,13 @@
 import { Form, useNavigate } from "react-router";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { useState } from "react";
-import registerUser from "../api/authService";
-export default function SignUp() {
+import registerUser from "../../api/authService";
+
+export default function CreateAccount() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  async function handleSignUp(event) {
+  async function handleCreateAccount(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);

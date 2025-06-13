@@ -1,8 +1,8 @@
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import GoBackBtn from "../components/GoBackBtn";
-import { fetchSecrets } from "../api/authService";
+import GoBackBtn from "../../components/GoBackBtn";
+import { fetchSecrets } from "../../api/authService";
 
 export default function Secrets() {
     const [secrets, setSecrets] = useState([]);
