@@ -8,7 +8,8 @@ import Login from "./pages/Login/Login";
 import CreateAccount from "./pages/CreateAccount/CreateAccount";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import CartPage from "./pages/CartPage/CartPage";
-import ContactPage from "./pages/ContactPage/ContactPage";
+import Contact from "./pages/ContactPage/Contact";
+import Thanks from "./pages/ContactPage/Thanks"
 import InvoicePage from "./pages/InvoicePage/InvoicePage";
 import MoreInfo from "./pages/MoreInfo/MoreInfo";
 import PaymentPage from "./pages/PaymentPage/PaymentPage";
@@ -17,6 +18,8 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import Profile from "./pages/Profile/Profile";
 import RequiredAuth from "./components/RequiredAuth";
+import { handleSubmit } from "./pages/ContactPage/action";
+
 
 const router = createBrowserRouter([
   {
@@ -28,7 +31,8 @@ const router = createBrowserRouter([
       { path: "signup", element: <CreateAccount /> },
       { path: "about", element: <AboutUs /> },
       { path: "cart", element: <CartPage /> },
-      { path: "contact", element: <ContactPage /> },
+      { path: "contact", element: <Contact />, action: handleSubmit},
+      { path: "thanks", element: <Thanks />},
       { path: "invoice", element: <InvoicePage /> },
       { path: "more-info", element: <MoreInfo /> },
       { path: "payment", element: <PaymentPage /> },
