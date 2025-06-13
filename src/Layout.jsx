@@ -1,7 +1,10 @@
 
 import { Outlet } from "react-router"
-// import '/src/style/style.scss'
+import './global-styling/style.scss'
 // import Header from "./components/Header"
+import Navegation from "./components/navagationbar/Navigation"
+import Footer from "./components/footer/Footer"
+
 
 
 function Layout() {
@@ -10,13 +13,14 @@ function Layout() {
   return (
     <>
 
-      {/* <Header /> */}
+    <Navegation/>
     
      <main>
       <Outlet />
      </main>
 
-   
+    <Footer/>
+  
     </>
   )
 }
