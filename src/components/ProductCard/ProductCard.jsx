@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './ProductCards.scss';
 
@@ -8,7 +9,7 @@ const ProductCards = ({ products }) => {
         <div key={product.id} className="productcards__card">
           <img src={product.image} alt={product.title} />
           <h4>{product.title}</h4>
-          <p>£ {product.price}</p>
+          <p>£ {product.price.toFixed(2)}</p>
           <p><strong>Brand:</strong> {product.brand}</p>
           <p><strong>Color:</strong> {product.color}</p>
           <button>Add to cart</button>
