@@ -1,0 +1,22 @@
+
+@use "./colors" as var;
+
+.btn{
+    background-color:var.$bold-color ;
+  border: none;
+  padding: 0.5em;
+  border-radius: 5%;
+margin: 1em;
+
+
+a{
+    text-decoration: none;
+    color: white;
+
+    font-size: 14px;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+  
+}
+
