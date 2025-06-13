@@ -1,0 +1,17 @@
+$primary-color:#FF6900;
+$lightest-color:#FFFF;
+$error-color:red;
+
+
+
+.primary__btn{
+background-color: $primary-color;
+color: $lightest-color;
+border: none;
+padding: 0.5rem 1rem;
+}
+
+.error{
+    color:$error-color;
+    font-size: small;
+}
