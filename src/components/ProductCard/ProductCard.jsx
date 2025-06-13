@@ -19,4 +19,4 @@ const ProductCards = ({ products }) => {
   );
 };
 
-export default ProductCards;
+export default ProductCards; // ProductCards.jsx
