@@ -9,9 +9,9 @@ import SignUp from "./pages/SingUp";
 import Success from "./pages/Success";
 import Statements from "./pages/Statements";
 
-import Contact from "./pages/Contact/Contact";
-import { handleSubmit } from "./pages/Contact/action";
-import Thanks from "./pages/Contact/Thanks";
+import Contact from "./pages/ContactPage/Contact";
+import { handleSubmit } from "./pages/ContactPage/action";
+import Thanks from "./pages/ContactPage/Thanks";
 
 const router = createBrowserRouter([
     {
