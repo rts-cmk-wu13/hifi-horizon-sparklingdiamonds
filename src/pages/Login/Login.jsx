@@ -1,8 +1,8 @@
 import { Form, Link, useLocation, useNavigate } from "react-router";
-import { useAuth } from "../context/AuthContext.jsx";
+import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-import { loginUser } from "../api/authService.js";
+import { loginUser } from "../../api/authService";
 
 export default function Login() {
   const { login } = useAuth();

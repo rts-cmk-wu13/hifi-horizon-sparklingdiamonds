@@ -1,7 +1,7 @@
 import { Form, useNavigate } from "react-router";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { useState } from "react";
-import registerUser from "../api/authService";
+import registerUser from "../../api/authService";
 
 export default function CreateAccount() {
   const [error, setError] = useState(null);

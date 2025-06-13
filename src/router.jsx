@@ -1,21 +1,21 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router";
 import Layout from "./Layout";
 
 // Pages
-import HomePage from "./pages/HomePage";
-import NotFound from "./pages/NotFound";
-import Login from "./pages/Login";
-import CreateAccount from "./pages/CreateAccount";
-import AboutUs from "./pages/AboutUs";
-import CartPage from "./pages/CartPage";
-import ContactPage from "./pages/ContactPage";
-import InvoicePage from "./pages/InvoicePage";
-import MoreInfo from "./pages/MoreInfo";
-import PaymentPage from "./pages/PaymentPage";
-import ProductComparison from "./pages/ProductComparison";
-import ProductDetails from "./pages/ProductDetails";
-import ProductPage from "./pages/ProductPage";
-import Profile from "./pages/Profile";
+import HomePage from "./pages/HomePage/HomePage";
+import NotFound from "./pages/NotFound/NotFound";
+import Login from "./pages/Login/Login";
+import CreateAccount from "./pages/CreateAccount/CreateAccount";
+import AboutUs from "./pages/AboutUs/AboutUs";
+import CartPage from "./pages/CartPage/CartPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
+import InvoicePage from "./pages/InvoicePage/InvoicePage";
+import MoreInfo from "./pages/MoreInfo/MoreInfo";
+import PaymentPage from "./pages/PaymentPage/PaymentPage";
+import ProductComparison from "./pages/ProductComparison/ProductComparison";
+import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import ProductPage from "./pages/ProductPage/ProductPage";
+import Profile from "./pages/Profile/Profile";
 import RequiredAuth from "./components/RequiredAuth";
 
 const router = createBrowserRouter([
