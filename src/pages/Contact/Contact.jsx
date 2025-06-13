@@ -5,11 +5,13 @@ import { Form, useActionData } from 'react-router'
 export default function Contact() {
 
 
-    const errors = useActionData();
+    const actionData = useActionData();
+    console.log(actionData);
+    
+
 
     return (
 
-       
         <article className="contact">
             <h1>GEET IN TOUCH WITH US</h1>
 
@@ -19,7 +21,7 @@ export default function Contact() {
                     <span style={{ color: 'red' }}>*</span>
                 </label> 
                 <input type="text" name="name" id="name" />
-                <p className="error">{errors && errors?.name?.errors[0]}</p>
+                {actionData?.errors?.name && (<p className="error">{actionData.errors.name[0]}</p>)}
             </div>
 
             <div className="mandatory">
@@ -27,7 +29,7 @@ export default function Contact() {
                     <span style={{ color: 'red' }}>*</span>
                     </label> 
                 <input type="email" name="email" id="email" />
-                <p className="error">{errors && errors?.email?.errors[0]}</p>
+                {actionData?.errors?.email && ( <p className="error">{actionData.errors.email[0]}</p>)}
             </div>
 
             <div className="mandatory">
@@ -35,7 +37,7 @@ export default function Contact() {
                     <span style={{ color: 'red' }}>*</span>
                     </label> 
                 <input type="text" name="subject" id="subject"/>
-                <p className="error">{errors && errors?.subject?.errors[0]}</p>
+                {actionData?.errors?.subject && ( <p className="error">{actionData.errors.subject[0]}</p>)}
             </div>
 
             <div className="mandatory">
@@ -43,7 +45,7 @@ export default function Contact() {
                     <span style={{ color: 'red' }}>*</span>
                 </label>
                 <textarea name="message" id="message" rows="10"></textarea>
-                <p className="error">{errors && errors?.message?.errors[0]}</p>
+                {actionData?.errors?.message && ( <p className="error">{actionData.errors.message[0]}</p>)}
             </div>
 
             <button className='form__btn' type="submit">Send</button>
