@@ -1,0 +1,17 @@
+
+
+.product-page {
+    padding: 2rem;
+  
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  
+    &__layout {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+  }
+  

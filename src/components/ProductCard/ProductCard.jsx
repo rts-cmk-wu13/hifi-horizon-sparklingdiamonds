@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './ProductCards.scss';
+import './ProductCard.scss';
 
 const ProductCards = ({ products }) => {
   return (
