@@ -12,6 +12,6 @@ export default function LogoutButton() {
     }
 
     return token ?  (
-        <button className="btn__logout btn__signin" onClick={handleLogout}>Log out</button>
+        <button className="prymary__btn" onClick={handleLogout}>Log out</button>
     )   : null
 }

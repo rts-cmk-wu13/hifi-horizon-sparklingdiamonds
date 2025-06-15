@@ -1,12 +1,12 @@
 import { Form, Link, useLocation, useNavigate } from "react-router";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
-import PageTitle from "./PageTitle";
-import { loginUser } from "../api/authService";
+import PageTitle from "../../components/PageTitle";
+import { loginUser } from "../../api/authService";
 
 /* ------------------------------- Components --------------------------------- */
-import PrimaryButton from "./PrimaryButton";
-import SectionHeader from "./SectionHeader";
+import PrimaryButton from "../../components/PrimaryButton";
+import SectionHeader from "../../components/SectionHeader";
 /* ---------------------------------------------------------------- */
 
 export default function LoginForm() {

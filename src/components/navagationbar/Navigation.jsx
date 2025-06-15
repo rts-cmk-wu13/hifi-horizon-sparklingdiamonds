@@ -1,7 +1,11 @@
 import './navStyle.scss'
+import '../SearchBar/SearchBar.scss'
+
 import { NavLink } from 'react-router'
 import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
+import LogoutButton from '../LogoutButton'
+import { FaSearch } from "react-icons/fa";
 
 export default function Navegation() {
 
@@ -11,17 +15,25 @@ export default function Navegation() {
   <ul>
     <img src='/logo.svg' alt="logo" /> 
     
-    <NavLink to="products"><li className="menuList"><a className="menuLink" href="#">shop</a></li></NavLink>
-    <NavLink to="about"><li className="menuList"><a className="menuLink" href="#">about us</a></li></NavLink>
-    <NavLink to="contact"><li className="menuList"><a className="menuLink" href="#">contact us</a></li></NavLink>
-    
-    
+    <li className="menuList"><NavLink className="menuLink" to="products">SHOP</NavLink></li>
+    <li className="menuList"><NavLink className="menuLink" to="about">ABOUT US</NavLink></li>
+    <li className="menuList"><NavLink className="menuLink" to="contact">CONTACT US</NavLink></li>
+    <li className="menuList search-bar">
+      <div className="search-container">
+        <input type="search" placeholder="Search product..." />
+        <button><FaSearch /></button>
+     </div>
+    </li>
+    <li className="menuList"><NavLink className="menuLink" to="profile"><FaUser /></NavLink></li>
+    <li className="menuList"> <NavLink className="menuLink" to="cart"><FaShoppingCart /></NavLink></li>
 
-<p>search bar here</p>
-     <NavLink to="profile"> <li className="menuList"><a className="menuLink" href="#"><FaUser /></a></li></NavLink>
-     <NavLink to="cart"> <li className="menuList"><a className="menuLink" href="#"><FaShoppingCart /></a></li></NavLink>
+    {location.pathname !== '/login' && (
+                    <>
+                        <LogoutButton/> 
+                    </>
+                )}
+
    
-    
   </ul>
 </nav>
     </>

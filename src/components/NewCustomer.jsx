@@ -1,4 +1,5 @@
 import PrimaryButton from "./PrimaryButton"
+import { Link } from "react-router"
 
 export default function NewCustomer() {
 
@@ -7,10 +8,13 @@ export default function NewCustomer() {
        <div className="newcostumer card">
         <h2>NEW CUSTOMER</h2>
         <p>Creating an account has many benefits: check out faster, track orders and more.</p>
-        <PrimaryButton
-        text="Create an Account"
-        style="primary__btn"
-        />
+
+        <Link to="/signup">
+            <PrimaryButton
+            text="Create an Account"
+            style="primary__btn"
+            />
+        </Link>
        </div>
        </> 
     )

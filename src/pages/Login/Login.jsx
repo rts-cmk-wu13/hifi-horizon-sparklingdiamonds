@@ -2,7 +2,7 @@
 
 /* ------------------------------------------------------ */
 
-import LoginForm from "../../components/LoginForm";
+import LoginForm from './LoginForm';
 import './Login.scss';
 import NewCustomer from "../../components/NewCustomer";
 /* -------------------------------------------------------- */
