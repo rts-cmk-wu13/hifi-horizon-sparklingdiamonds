@@ -19,6 +19,8 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Profile from "./pages/Profile/Profile";
 import RequiredAuth from "./components/RequiredAuth";
 import { handleSubmit } from "./pages/ContactPage/action";
+import SuccessfulRegisttration from './pages/SuccessfulRegistration'
+
 
 
 const router = createBrowserRouter([
@@ -29,6 +31,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "login", element: <Login /> },
       { path: "signup", element: <CreateAccount /> },
+      { path: "success", element: <SuccessfulRegisttration/>},
       { path: "about", element: <AboutUs /> },
       { path: "cart", element: <CartPage /> },
       { path: "contact", element: <Contact />, action: handleSubmit},

@@ -1,0 +1,127 @@
+import { Form, useNavigate } from "react-router";
+import { useState } from "react";
+import registerUser from "../../api/authService";
+
+
+/* ---------------------Import Components ------------------- */
+
+import SectionHeader from "../../components/SectionHeader";
+/* ---------------------Import Components ------------------- */
+
+export default function CreateAccountForm() {
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+      async function handleSignUp(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+
+    console.log(data);
+    
+
+    if (data.password !== data.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    const user = {
+      email: data.email,
+      password: data.password,
+      username: data.username,
+    };
+
+    try {
+      await registerUser(user);
+      navigate("/succes");
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  return (
+    
+    <section className="card">
+
+      <h1>CREATE AN ACCOUNT</h1>
+
+      <SectionHeader
+      text="Create New Customer Account"
+      />
+
+      <Form onSubmit={handleSignUp}>
+      <div className="form__group">
+        <label htmlFor="fullName">Full name <span style={{ color: "red" }}>*</span></label>
+        <input type="text" id="fullName" name="fullName" required />
+      </div>
+
+      <div className="form__group">
+        <label htmlFor="address1">Address <span style={{ color: "red" }}>*</span></label>
+        <input type="text" id="address1" name="address1" required />
+      </div>
+
+      <div className="form__group">
+        <label htmlFor="address2">Address - line 2</label>
+        <input type="text" id="address2" name="address2" />
+      </div>
+
+      <div className="form__row">
+        <div className="form__group">
+          <label htmlFor="zip">Zip-code <span style={{ color: "red" }}>*</span></label>
+          <input type="text" id="zip" name="zip" required />
+        </div>
+        <div className="form__group">
+          <label htmlFor="city">City <span style={{ color: "red" }}>*</span></label>
+          <input type="text" id="city" name="city" required />
+        </div>
+      </div>
+
+      <div className="form__row">
+        <div className="form__group">
+          <label htmlFor="country">Country</label>
+          <input type="text" id="country" name="country" />
+        </div>
+        <div className="form__group">
+          <label htmlFor="phone">Phone no.</label>
+          <input type="tel" id="phone" name="phone" />
+        </div>
+      </div>
+
+      <div className="form__group">
+        <label htmlFor="email">Email <span style={{ color: "red" }}>*</span></label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div className="form__group">
+        <label htmlFor="password">Password <span style={{ color: "red" }}>*</span></label>
+        <input type="password" id="password" name="password" required />
+      </div>
+
+      <div className="form__group">
+        <label htmlFor="repeatPassword">Repeat password <span style={{ color: "red" }}>*</span></label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required />
+      </div>
+
+      <div className="form__group form__checkbox">
+        <label>
+          <input type="checkbox" name="agree" required />
+          By using this form you agree with the storage and handling of your data by this website. <span style={{ color: "red" }}>*</span>
+        </label>
+      </div>
+
+      <div className="form__group form__checkbox">
+        <label>
+          <input type="checkbox" name="marketing" />
+          Accept marketing from HiFi Horizon (newsletter and discount offers by email).<span style={{ color: "red" }}>*</span>
+        </label>
+      </div>
+
+        {error && <div className="error">{error}</div>}
+
+      <button type="submit" className="btn">Create an Account</button>
+    </Form>
+      
+    </section>
+   
+  );
+}
