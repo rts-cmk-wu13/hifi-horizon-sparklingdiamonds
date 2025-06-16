@@ -26,14 +26,18 @@ export default function CreateAccountForm() {
     }
 
     const user = {
-      email: data.email,
-      password: data.password,
-      username: data.username,
+        name: data.fullName,
+        email: data.email,
+        phone:data.phone,
+        password: data.password,
+        address:data.address,
+        city:data.city,
+        country:data.country
     };
 
     try {
       await registerUser(user);
-      navigate("/succes");
+      navigate("/success");
     } catch (err) {
       setError(err.message);
     }
@@ -56,8 +60,8 @@ export default function CreateAccountForm() {
       </div>
 
       <div className="form__group">
-        <label htmlFor="address1">Address <span style={{ color: "red" }}>*</span></label>
-        <input type="text" id="address1" name="address1" required />
+        <label htmlFor="address">Address <span style={{ color: "red" }}>*</span></label>
+        <input type="text" id="address" name="address" required />
       </div>
 
       <div className="form__group">

@@ -1,0 +1,28 @@
+li{
+    list-style: none;
+}
+
+.info__row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .info__icon {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+.info__element{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    p{
+        line-height: 0.2rem;
+    }
+}
+
+.element__bold{
+    font-weight: bold;
+}
