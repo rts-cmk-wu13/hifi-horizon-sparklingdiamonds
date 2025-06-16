@@ -22,6 +22,7 @@ export default function Footer() {
 
     return (
         <>
+        <section className='footer'>
             <div className='gridBox'>
 
                 <div className='footerMenu'>
@@ -46,29 +47,30 @@ export default function Footer() {
                         <p>44 Cow Wynd, Falkirk, Central Region, FK1 1PU</p>
                         <p><FaPhoneAlt />01324 629 011</p>
                     </span>
-                    <div className='socialsLinks'>
+                    <span className='socialsLinks'>
                         <p><NavLink to=""><FaFacebookSquare /></NavLink></p>
                         <p><NavLink to=""><FaTwitterSquare /></NavLink></p>
                         <p><NavLink to=""><FaInstagramSquare /></NavLink></p>
                         <p><NavLink to=""><FaSquareYoutube /></NavLink></p>
-                    </div>
+                    </span>
                 </div>
 
             </div> {/* end of grid box */}
 <div className='footerBottom'>
-
+<hr />
             <div className='creditBox'>
                 <p><FaCcStripe /></p>
                 <p><FaCcVisa /></p>
                 <p><FaCcMastercard /></p>
 
             </div>
-            <div className='madeByBox'>
+            <span className='madeByBox'>
                 <p>HiFi Horizon (Edinburgh) Ltd is registered in Scotland. No: SC049298. Registered office: 2 Joppa Rd, Edinburgh EH15 2EU</p>
                 <p>Designed by WU07</p>
-            </div>
+            </span>
 
             </div>
+            </section>
         </>
     )
 }

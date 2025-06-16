@@ -1,40 +1,40 @@
 
-.gridBox{
+.gridBox {
+    width: fit-content;
+    margin: 0 auto;
+    gap: 3rem;
+    font-size: 1.1rem;
+
     display: grid;
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
-    .footerMenu{
+    .contactBox {
 
+        .contactBold {
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
     }
-    
-    .policyBox{
-        
-    }
-    
-    .contactBox{
 
-      .contactBold{
-font-weight: bold;
-      }  
-    }
-    
-    .socialsLinks{
-      display: flex;  
-      font-size: 1.8em;
-    }
-}
-
-.footerBottom{
-    .creditBox{
+    .socialsLinks {
         display: flex;
-  font-size: 2.5em;
-}
-.madeByBox{
-    display: flex;
-    gap: 6em;
- font-size: 1em;
+        font-size: 1.8rem;
+        gap: 0.5rem;
+    }
 }
 
+.footerBottom {
+
+    .creditBox {
+        display: flex;
+        font-size: 2.5rem;
+        gap: 0.5rem;
+    }
+
+    .madeByBox {
+        display: flex;
+        gap: 6rem;
+        font-size: 0.9rem;
+    }
+
 }
-
-
