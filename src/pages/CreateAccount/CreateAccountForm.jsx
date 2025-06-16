@@ -4,9 +4,9 @@ import registerUser from "../../api/authService";
 
 
 /* ---------------------Import Components ------------------- */
-
 import SectionHeader from "../../components/SectionHeader";
 /* ---------------------Import Components ------------------- */
+
 
 export default function CreateAccountForm() {
   const [error, setError] = useState(null);
@@ -47,13 +47,13 @@ export default function CreateAccountForm() {
     
     <section className="card">
 
-      <h1>CREATE AN ACCOUNT</h1>
+      <h1>CREATE AN ACCOUNT</h1>  
 
       <SectionHeader
       text="Create New Customer Account"
       />
 
-      <Form onSubmit={handleSignUp}>
+      <Form className='form' onSubmit={handleSignUp}>
       <div className="form__group">
         <label htmlFor="fullName">Full name <span style={{ color: "red" }}>*</span></label>
         <input type="text" id="fullName" name="fullName" required />
@@ -106,26 +106,22 @@ export default function CreateAccountForm() {
         <input type="password" id="confirmPassword" name="confirmPassword" required />
       </div>
 
-      <div className="form__group form__checkbox">
-        <label>
-          <input type="checkbox" name="agree" required />
-          By using this form you agree with the storage and handling of your data by this website. <span style={{ color: "red" }}>*</span>
-        </label>
+      <div className=" form__checkbox">
+          <input className="checkbox" type="checkbox" name="agree" required />
+          <label> By using this form you agree with the storage and handling of your data by this website. <span style={{ color: "red" }}>*</span> 
+          </label>
       </div>
 
-      <div className="form__group form__checkbox">
-        <label>
-          <input type="checkbox" name="marketing" />
-          Accept marketing from HiFi Horizon (newsletter and discount offers by email).<span style={{ color: "red" }}>*</span>
-        </label>
+      <div className=" form__checkbox">
+        <input className="checkbox" type="checkbox" name="marketing" />
+        <label> Accept marketing from HiFi Horizon (newsletter and discount offers by email).</label>
       </div>
 
         {error && <div className="error">{error}</div>}
 
-      <button type="submit" className="btn">Create an Account</button>
+      <button type="submit" className="form__btn">Create an Account</button>
     </Form>
       
     </section>
-   
   );
 }

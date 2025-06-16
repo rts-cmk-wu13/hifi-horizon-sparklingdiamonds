@@ -1,11 +1,1 @@
-@use "./colors" as col;
 
-.wrapper{
-
-  max-width: 1280px;
-  margin: auto 0;
-
-  text-align: center;
-
-  background-color: col.$main-Page-Color;
-}
