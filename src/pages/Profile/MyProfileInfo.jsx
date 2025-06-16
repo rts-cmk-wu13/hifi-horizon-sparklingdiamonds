@@ -68,7 +68,7 @@ export default function MyProfile() {
                     addressChild={
                     <div>
                         <p>{myUser.city}</p> 
-                        <p>{myUser.country}</p> 
+                        <p>{myUser.country} </p> 
                     </div>}
                     icon={<FaLocationDot/>}/>
                 </li>
@@ -82,47 +82,3 @@ export default function MyProfile() {
         </>
     );
 }
-
-
-//  <li>
-//         <InfoElement
-//           style="info__elmt"
-//           icon={<FaUser className="info__icon" />}
-//           elementName="Name"
-//           elementInfo={myUser.name}
-//         />
-//       </li>
-//       <li>
-//         <InfoElement
-//           icon={<FaPhone className="info__icon" />}
-//           elementName="Phone"
-//           elementInfo={myUser.phone}
-//         />
-//       </li>
-//       <li>
-//         <InfoElement
-//           icon={<FaEnvelope className="info__icon" />}
-//           elementName="Email"
-//           elementInfo={myUser.email}
-//         />
-//       </li>
-//       <li>
-//         <InfoElement
-//           icon={<FaLock className="info__icon" />}
-//           elementName="Password"
-//           elementInfo="***********"
-//         />
-//       </li>
-//       <li>
-//         <InfoElement
-//           icon={<FaLocationDot className="info__icon" />}
-//           elementName="Address"
-//           elementInfo={myUser.address}
-//           adddressChild={
-//             <span>
-//               <div>{myUser.city}</div>
-//               <div>{myUser.country}</div>
-//             </span>
-//           }
-//         />
-//       </li>
