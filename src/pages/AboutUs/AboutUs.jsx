@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { fetchAboutUs } from '../../api/authService';
 import './AboutUs.scss';
 
 export default function AboutUs() {
@@ -7,19 +8,13 @@ export default function AboutUs() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchAboutData();
+    loadAboutData();
   }, []);
 
-  const fetchAboutData = async () => {
+  const loadAboutData = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/about-us');
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      
-      const data = await response.json();
+      const data = await fetchAboutUs();
       setAboutData(data);
     } catch (err) {
       setError(err.message);
@@ -27,7 +22,7 @@ export default function AboutUs() {
     } finally {
       setLoading(false);
     }
-  };
+  }; 
 
   if (loading) {
     return (
