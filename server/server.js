@@ -3,6 +3,13 @@ import nodemailer from 'nodemailer';
 import cors from 'cors';
 import 'dotenv/config';
 
+console.log(
+  'Loaded env →',
+  process.env.GMAIL_USER,
+  process.env.GMAIL_PASS ? '✓ password set' : '✗ password missing'
+);
+
+
 const app = express();
 app.use(cors());
 app.use(express.json());

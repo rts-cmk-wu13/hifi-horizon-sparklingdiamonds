@@ -54,6 +54,8 @@ export default function Contact() {
                 {actionData?.errors?.message && ( <p className="error">{actionData.errors.message[0]}</p>)}
             </div>
 
+            {/* {actionData?.errors} */}
+
             <button className='form__btn flex__end' type="submit">Send</button>
             </Form>
 
