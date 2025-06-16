@@ -1,5 +1,6 @@
 @use "./colors" as col;
 
+
 .wrapper{
 
   max-width: 1280px;
@@ -9,3 +10,5 @@
 
   background-color: col.$main-Page-Color;
 }
+
+

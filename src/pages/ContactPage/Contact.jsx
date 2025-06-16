@@ -1,3 +1,4 @@
+import SectionHeader from '../../components/SectionHeader';
 import './contact.scss'
 import { Form, useActionData } from 'react-router'
 
@@ -11,12 +12,17 @@ export default function Contact() {
 
 
     return (
+    <>
+    
+        <section className="card">
 
-        <article className="contact">
-            <h1>GEET IN TOUCH WITH US</h1>
+           <SectionHeader
+           text="GET IN TOUCH WITH US"
+           style="contact__header"
+           />
 
-            <Form method='post' /* onSubmit={handleSubmit} */>
-            <div className="mandatory">
+            <Form className='form' method='post' /* onSubmit={handleSubmit} */>
+            <div className="form__group">
                 <label htmlFor="name">Full name 
                     <span style={{ color: 'red' }}>*</span>
                 </label> 
@@ -24,7 +30,7 @@ export default function Contact() {
                 {actionData?.errors?.name && (<p className="error">{actionData.errors.name[0]}</p>)}
             </div>
 
-            <div className="mandatory">
+            <div className="form__group">
                 <label htmlFor="email">Email 
                     <span style={{ color: 'red' }}>*</span>
                     </label> 
@@ -32,7 +38,7 @@ export default function Contact() {
                 {actionData?.errors?.email && ( <p className="error">{actionData.errors.email[0]}</p>)}
             </div>
 
-            <div className="mandatory">
+            <div className="form__group">
                 <label htmlFor="email">Subject
                     <span style={{ color: 'red' }}>*</span>
                     </label> 
@@ -40,7 +46,7 @@ export default function Contact() {
                 {actionData?.errors?.subject && ( <p className="error">{actionData.errors.subject[0]}</p>)}
             </div>
 
-            <div className="mandatory">
+            <div className="form__group">
                 <label htmlFor="message">Message 
                     <span style={{ color: 'red' }}>*</span>
                 </label>
@@ -54,7 +60,8 @@ export default function Contact() {
          <div className="contact__footer">
             <p>Visit our sister companies <span className="primary__color"> Home Sound </span> and <span className="primary__color">  The Movie Rooms </span> part of the HiFi Horizon Group. </p> 
          </div>
-        </article>
+        </section>
+    </>
       
         
     )
