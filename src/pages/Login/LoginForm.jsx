@@ -41,25 +41,25 @@ export default function LoginForm() {
 
       <section className="card">
 
-
-         <Form onSubmit={handleLogin}>
-
         <PageTitle
         text="LOGIN"
+        style="page__header"
         />
 
-        
+         <Form className="form" onSubmit={handleLogin}>
+
+
         <SectionHeader
         text="Registered Customers"
         text2="If you have an account, sign in with your email address."
         />
 
-        <div className="form__grup">
+        <div className="form__group">
            <label htmlFor="email">Email<span style={{ color: 'red' }}>*</span></label> 
           <input type="email" id="email" name="email" placeholder="Email address" required />
         </div>
 
-        <div className="form__grup">
+        <div className="form__group">
           <label htmlFor="password">Password<span style={{ color: 'red' }}>*</span></label> 
           <input type="password" id="password" name="password" placeholder="Password" required />
         </div>
@@ -72,7 +72,7 @@ export default function LoginForm() {
         {error && <div className="error">{error}</div>}
 
               <PrimaryButton
-              style="btn primary__btn"
+              style="form__btn"
               text="Login"
               />
       </Form>

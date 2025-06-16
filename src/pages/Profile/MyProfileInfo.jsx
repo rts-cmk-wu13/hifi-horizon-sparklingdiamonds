@@ -46,24 +46,24 @@ export default function MyProfile() {
 
     return (
         <>
-         <section className="card">
+         <section className="form card">
 
             <ul>
             {Users.map((myUser) => (
                 <Fragment key={myUser.id}>
-                <li>
+                <li className="profile__elmt">
                     <InfoElement elementName="Name" elementInfo={myUser.name} icon={<FaUser/>}/>
                 </li>
-                <li>
+                <li className="profile__elmt">
                     <InfoElement elementName="Phone" elementInfo={myUser.phone} icon={<FaPhone/>}/>
                 </li>
-                <li>
+                <li className="profile__elmt">
                     <InfoElement elementName="Email" elementInfo={myUser.email} icon={<FaEnvelope/>}/>
                 </li>
-                <li>
+                <li className="profile__elmt">
                     <InfoElement elementName="Password" elementInfo="********" icon={<FaLock />}/>
                 </li>
-                <li>
+                <li className="profile__elmt">
                     <InfoElement elementName="Address" elementInfo={myUser.address} 
                     addressChild={
                     <div>

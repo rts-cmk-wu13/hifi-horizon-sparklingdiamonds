@@ -2,6 +2,10 @@ li{
     list-style: none;
 }
 
+.profile__elmt{
+    margin-block: 2rem;
+}
+
 .info__row{
     display: flex;
     justify-content: space-between;
@@ -18,9 +22,7 @@ li{
     align-items: center;
     gap: 1rem;
 
-    p{
-        line-height: 0.2rem;
-    }
+  
 }
 
 .element__bold{
