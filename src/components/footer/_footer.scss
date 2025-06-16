@@ -5,6 +5,7 @@
     gap: 3rem;
     font-size: 1.1rem;
 
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
@@ -13,6 +14,9 @@
         .contactBold {
             font-size: 0.8rem;
             font-weight: bold;
+            span{
+               padding-right:1em;
+            }
         }
     }
 
@@ -24,17 +28,20 @@
 }
 
 .footerBottom {
+ display: grid;
 
     .creditBox {
         display: flex;
         font-size: 2.5rem;
         gap: 0.5rem;
+        
+
+        .madeByBox {
+            display: flex;
+            gap: 6rem;
+            font-size: 0.9rem;
+        }
     }
 
-    .madeByBox {
-        display: flex;
-        gap: 6rem;
-        font-size: 0.9rem;
-    }
 
 }

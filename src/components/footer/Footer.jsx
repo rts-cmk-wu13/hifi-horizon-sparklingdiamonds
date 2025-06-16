@@ -43,9 +43,9 @@ export default function Footer() {
                     <p>Contact</p>
                     <span className='contactBold'>
                         <p>2 Joppa Rd, Edinburgh, EH15 2EU</p>
-                        <p><FaPhoneAlt />0131 556 7901</p>
+                        <p><span><FaPhoneAlt /></span>0131 556 7901</p>
                         <p>44 Cow Wynd, Falkirk, Central Region, FK1 1PU</p>
-                        <p><FaPhoneAlt />01324 629 011</p>
+                        <p><span><FaPhoneAlt /></span>01324 629 011</p>
                     </span>
                     <span className='socialsLinks'>
                         <p><NavLink to=""><FaFacebookSquare /></NavLink></p>
@@ -56,8 +56,8 @@ export default function Footer() {
                 </div>
 
             </div> {/* end of grid box */}
-<div className='footerBottom'>
 <hr />
+<div className='footerBottom'>
             <div className='creditBox'>
                 <p><FaCcStripe /></p>
                 <p><FaCcVisa /></p>
