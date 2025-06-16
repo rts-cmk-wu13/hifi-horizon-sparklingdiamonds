@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import Success from "../components/Success"
+import Success from "../../components/Success"
 
 export default function SuccessfulRegistration() {
 

@@ -44,19 +44,19 @@ export async function loginUser(credentials) {
 
 // Statements
 
-export async function fetchStatements() {
-  const response = await fetch('http://localhost:4000/statements', {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+// export async function fetchStatements() {
+//   const response = await fetch('http://localhost:4000/statements', {
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//   });
 
-  if (!response.ok) {
-    throw new Error('Failed to fetch statements');
-  }
+//   if (!response.ok) {
+//     throw new Error('Failed to fetch statements');
+//   }
 
-  return await response.json();
-}
+//   return await response.json();
+// }
 
 
 // Products
@@ -77,24 +77,33 @@ export async function fetchProducts() {
 
 
 
-// Secrets 
+// Profile 
 
-export async function fetchSecrets(token) {
-    try {
-        const response = await fetch('http://localhost:4000/secrets', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-        });
+export async function fetchUserById(id, token) {
+  try {
+    const response = await fetch(`http://localhost:4000/600/users/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+    });
 
-        if (!response.ok) {
-            throw new Error('Failed to fetch secrets');
-        }
-
-        return await response.json();
-    } catch (error) {
-        throw error;
+    if (!response.ok) {
+      throw new Error('Failed to fetch user');
     }
+
+    return await response.json();
+  } catch (error) {
+    throw error;
+  }
+}
+
+
+export function parseJwt(token) {
+  try {
+    return JSON.parse(atob(token.split('.')[1]));
+  } catch (e) {
+    return null;
+  }
 }
 
