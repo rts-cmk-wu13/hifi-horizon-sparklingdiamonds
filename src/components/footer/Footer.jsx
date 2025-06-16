@@ -6,7 +6,7 @@ import './footerStyle.scss'
 
 /* socials icons */
 import { FaFacebookSquare } from "react-icons/fa";
-import { FaSquareTwitter } from "react-icons/fa6";
+import { FaTwitterSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaSquareYoutube } from "react-icons/fa6";
 
@@ -48,7 +48,7 @@ export default function Footer() {
                     </span>
                     <div className='socialsLinks'>
                         <p><NavLink to=""><FaFacebookSquare /></NavLink></p>
-                        <p><NavLink to=""><FaSquareTwitter /></NavLink></p>
+                        <p><NavLink to=""><FaTwitterSquare /></NavLink></p>
                         <p><NavLink to=""><FaInstagramSquare /></NavLink></p>
                         <p><NavLink to=""><FaSquareYoutube /></NavLink></p>
                     </div>
