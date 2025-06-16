@@ -18,7 +18,7 @@ export default function Contact() {
 
            <SectionHeader
            text="GET IN TOUCH WITH US"
-           style="contact__header"
+           style="page__header"
            />
 
             <Form className='form' method='post' /* onSubmit={handleSubmit} */>
@@ -54,7 +54,7 @@ export default function Contact() {
                 {actionData?.errors?.message && ( <p className="error">{actionData.errors.message[0]}</p>)}
             </div>
 
-            <button className='form__btn' type="submit">Send</button>
+            <button className='form__btn flex__end' type="submit">Send</button>
             </Form>
 
          <div className="contact__footer">

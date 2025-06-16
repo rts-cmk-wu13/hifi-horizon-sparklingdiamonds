@@ -47,13 +47,16 @@ export default function CreateAccountForm() {
     
     <section className="card">
 
-      <h1>CREATE AN ACCOUNT</h1>  
 
       <SectionHeader
-      text="Create New Customer Account"
+      text="CREATE AN ACCOUNT"
+       style="page__header"
       />
 
       <Form className='form' onSubmit={handleSignUp}>
+
+          <h3>CREATE NEW CUSTOMER ACCOUNT</h3>
+
       <div className="form__group">
         <label htmlFor="fullName">Full name <span style={{ color: "red" }}>*</span></label>
         <input type="text" id="fullName" name="fullName" required />
@@ -69,7 +72,7 @@ export default function CreateAccountForm() {
         <input type="text" id="address2" name="address2" />
       </div>
 
-      <div className="form__row">
+      <div className="form__row1">
         <div className="form__group">
           <label htmlFor="zip">Zip-code <span style={{ color: "red" }}>*</span></label>
           <input type="text" id="zip" name="zip" required />
@@ -80,7 +83,7 @@ export default function CreateAccountForm() {
         </div>
       </div>
 
-      <div className="form__row">
+      <div className="form__row2">
         <div className="form__group">
           <label htmlFor="country">Country</label>
           <input type="text" id="country" name="country" />
@@ -112,14 +115,14 @@ export default function CreateAccountForm() {
           </label>
       </div>
 
-      <div className=" form__checkbox">
+      <div className="form__checkbox">
         <input className="checkbox" type="checkbox" name="marketing" />
         <label> Accept marketing from HiFi Horizon (newsletter and discount offers by email).</label>
       </div>
 
         {error && <div className="error">{error}</div>}
 
-      <button type="submit" className="form__btn">Create an Account</button>
+      <button type="submit" className="form__btn flex__start">Create an Account</button>
     </Form>
       
     </section>
