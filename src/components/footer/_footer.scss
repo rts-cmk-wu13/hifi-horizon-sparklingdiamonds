@@ -1,0 +1,40 @@
+
+.gridBox{
+    display: grid;
+    grid-template-columns:repeat(3, 1fr) ;
+
+    .footerMenu{
+
+    }
+    
+    .policyBox{
+        
+    }
+    
+    .contactBox{
+
+      .contactBold{
+font-weight: bold;
+      }  
+    }
+    
+    .socialsLinks{
+      display: flex;  
+      font-size: 1.8em;
+    }
+}
+
+.footerBottom{
+    .creditBox{
+        display: flex;
+  font-size: 2.5em;
+}
+.madeByBox{
+    display: flex;
+    gap: 6em;
+ font-size: 1em;
+}
+
+}
+
+
