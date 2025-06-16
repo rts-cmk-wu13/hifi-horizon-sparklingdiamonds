@@ -107,3 +107,20 @@ export function parseJwt(token) {
   }
 }
 
+// About Us
+
+// About Us
+
+export async function fetchAboutUs() {
+  const response = await fetch('http://localhost:4000/aboutUs', {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch about us data');
+  }
+
+  return await response.json();
+}
