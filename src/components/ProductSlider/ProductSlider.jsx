@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './ProductSlider.scss';
 
-const ProductSlider = () => {
+export default function ProductSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
@@ -139,4 +139,3 @@ const ProductSlider = () => {
   );
 };
 
-export default ProductSlider;
