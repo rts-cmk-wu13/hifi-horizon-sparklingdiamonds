@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router'
+import './footer.scss'
 
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareTwitter } from "react-icons/fa6";
@@ -15,6 +16,8 @@ export default function Footer() {
 
     return (
         <>
+<div className='gridBox'>
+
        <div className='footerMenu'>
 <p><NavLink to="/">Home</NavLink></p>
 <p><NavLink to="products">Shop</NavLink></p>
@@ -22,16 +25,16 @@ export default function Footer() {
        </div>
 
 
-       <div className=''>
+       <div className='policysBox'>
 <p>Returns & Refunds</p>
 <p>Delivery</p>
 <p>Privacy Policy</p>
 <p>Terms & Conditions</p>
        </div>
 
-       <div>
+       <div className='contactBox'>
 <p>Contact</p>
-<span>
+<span className='contactBold'>
     <p>2 Joppa Rd, Edinburgh, EH15 2EU</p>
     <p><FaPhoneAlt />0131 556 7901</p>
     <p>44 Cow Wynd, Falkirk, Central Region, FK1 1PU</p>
@@ -53,6 +56,8 @@ export default function Footer() {
 <p>HiFi Horizon (Edinburgh) Ltd is registered in Scotland. No: SC049298. Registered office: 2 Joppa Rd, Edinburgh EH15 2EU</p>
 <p>Designed by WU07</p>
 </span>
+       </div>
+
        </div>
         </>
     )
