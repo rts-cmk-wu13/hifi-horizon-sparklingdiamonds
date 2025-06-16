@@ -1,0 +1,25 @@
+@use "./colors" as var;
+
+.footer{
+    padding-top: 2rem;
+    padding-bottom: 2em;
+
+    background-color: black;
+    color: white;
+    text-align: start;
+
+
+    a{
+        color: white;
+     text-decoration: none;
+  }
+
+  .footerBottom{
+        width: fit-content;
+margin: 0 auto;
+
+hr{
+    color: var.$main-Page-Color;
+}
+  }
+}

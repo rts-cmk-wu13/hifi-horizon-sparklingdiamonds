@@ -1,7 +1,12 @@
+import ProductSlider from '../../components/ProductSlider/ProductSlider';
+import ProductSpecifications from '../../components/ProductSpecifications/ProductSpecifications';
+import './ProductDetails.scss';
+
 export default function ProductDetails() {
     return (
-        <div className="product-details-page">
-            <h1>Product Details Page</h1>
-        </div>
+        <>
+        <ProductSlider/>
+        <ProductSpecifications/>
+        </>
     );
 }
