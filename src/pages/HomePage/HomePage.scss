@@ -1,0 +1,13 @@
+
+/* .heroImgHome{
+ 
+} */
+
+.OpeningTimeBox{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: black;
+    h4,h3,p{
+   color: white;
+    }
+}

@@ -13,7 +13,7 @@ export default function Navegation() {
     <>
 <nav className="menu">
   <ul>
-    <img src='/logo.svg' alt="logo" /> 
+    <NavLink to="/"><img src='/logo.svg' alt="logo" /></NavLink>
     
     <li className="menuList"><NavLink className="menuLink" to="products">SHOP</NavLink></li>
     <li className="menuList"><NavLink className="menuLink" to="about">ABOUT US</NavLink></li>
