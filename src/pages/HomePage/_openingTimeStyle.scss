@@ -1,0 +1,50 @@
+.OpeningTimeBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        "a a a a b b b b"
+        "a a a a b b b b";
+
+    background-color: black;
+    padding-top: 5em;
+    padding-bottom: 3em;
+
+    justify-content: center;
+
+    p {
+        color: #F4F4F2;
+        font-size: 0.9rem;
+    }
+
+    h4,
+    h2 {
+        color: white;
+
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    h4 {
+        margin-top: 2rem;
+    }
+
+
+    .whatWeDo {
+        max-width: 31.5rem;
+        grid-area: a;
+        margin-left: 10rem;
+
+    }
+
+    .openHours {
+        max-width: 19rem;
+        grid-area: b;
+        margin-right: 10rem;
+
+
+    }
+
+
+}
