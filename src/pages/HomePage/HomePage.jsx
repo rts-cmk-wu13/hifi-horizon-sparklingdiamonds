@@ -19,18 +19,37 @@ export default function Home() {
                         <h2>POPULAR PRODUCTS</h2>
                         <NavLink to="products"><button className="btn" id="shade">See all products</button></NavLink>
                     </div>
-                    <div>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
+                    <div className="product_container"> 
+                        {/* this is  where popular products 
+                        get put in  the div product_box are standby
+                         stuff till the real ones get put in*/}
+                     <div className="product_box">
+                        <img src="/logo.svg" alt="" />
+                        <h4>standby product</h4>
+                        <h2>price</h2>
+                        <button className="btn" id="shade" >button</button>
+                     </div>
+
+                      <div className="product_box">
+                        <img src="/logo.svg" alt="" />
+                        <h4>standby product</h4>
+                        <h2>price</h2>
+                        <button className="btn" id="shade" >button</button>
+                     </div>
+
+                      <div className="product_box">
+                        <img src="/logo.svg" alt="" />
+                        <h4>standby product</h4>
+                        <h2>price</h2>
+                        <button className="btn" id="shade" >button</button>
+                     </div>
+
+                      <div className="product_box">
+                        <img src="/logo.svg" alt="" />
+                        <h4>standby product</h4>
+                        <h2>price</h2>
+                        <button className="btn" id="shade" >button</button>
+                     </div>
 
                         {/* add popular products here */}
                     </div>
@@ -72,21 +91,19 @@ export default function Home() {
                 {/* end of what we do and opening hours sectio */}
 
 
-                <section>
+                <section className="sign_up_sec">
 
-                    <div>
-
-
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-
-
+                    <div className="sign_up_box">
+                        <h2>SIGN UP FOR OUR NEWSLETTER</h2>
+                        <p>Subscribing to our newsletter secures you up to date information about HiFi Horizons latest updates and offers.</p>
+                        <div>
+                            <input className="signUpInput" type="text"/>
+                            {/* replace with the real sign up for newsletter when made */}
+                            <input className="btn" id="shade" type="button" value="Sign up" />
+                        </div>
                     </div>
                     {/* sign up section */}
+
                 </section>
 
             </article>

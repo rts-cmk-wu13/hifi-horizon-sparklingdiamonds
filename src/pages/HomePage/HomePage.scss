@@ -1,5 +1,13 @@
 @use "./openingTimeStyle";
 @use "./popular";
+@use "./signUp";
+
+section, .sign_up_box{
+       padding-top: 5em;
+    padding-bottom: 3em;
+
+
+}
 
 .heroImgHome{
  height: auto;
