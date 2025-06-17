@@ -1,4 +1,6 @@
 import "./HomePage.scss";
+import { NavLink } from 'react-router';
+
 
 export default function Home() {
 
@@ -12,10 +14,24 @@ export default function Home() {
 
                     <img src='/hero.svg' alt="to be hero_img" />
                 </div>
-                <section>
-                    <h2>POPULAR PRODUCTS</h2>
-                    <button></button>
+                <section className="popularProductSec">
+                    <div className="title_btn_box">
+                        <h2>POPULAR PRODUCTS</h2>
+                        <NavLink to="products"><button className="btn" id="shade">See all products</button></NavLink>
+                    </div>
                     <div>
+                        <p>this is not perm</p>
+                        <p>this is not perm</p>
+                        <p>this is not perm</p>
+                        <p>this is not perm</p>
+                        <p>this is not perm</p>
+                        <p>this is not perm</p>
+                        <p>this is not perm</p>
+                        <p>this is not perm</p>
+                        <p>this is not perm</p>
+                        <p>this is not perm</p>
+                        <p>this is not perm</p>
+
                         {/* add popular products here */}
                     </div>
                 </section>
@@ -59,17 +75,15 @@ export default function Home() {
                 <section>
 
                     <div>
+
+
                         <p>this is not perm</p>
                         <p>this is not perm</p>
                         <p>this is not perm</p>
                         <p>this is not perm</p>
                         <p>this is not perm</p>
                         <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
-                        <p>this is not perm</p>
+
 
                     </div>
                     {/* sign up section */}
