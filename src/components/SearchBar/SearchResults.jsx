@@ -1,0 +1,72 @@
+import { useLocation } from 'react-router';
+import { useEffect, useState } from 'react';
+import { fetchSearch } from '../../api/authService';
+import '../ProductCard/ProductCard.scss';
+import { GoDotFill } from "react-icons/go";
+
+
+
+export default function SearchedResults() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const query = queryParams.get("query") || "";
+
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchSearch(query);
+        setProducts(data);
+      } catch (err) {
+        console.error(err);
+        setError("Failed to fetch products.");
+      }
+    };
+
+    fetchData();
+  }, [query]);
+
+  if (error) {
+    return <p className="error">{error}</p>;
+  }
+
+  if (products.length === 0) {
+    return <div className='no-results'>No products found for "{query}"</div>;
+  }
+
+  return (
+    <div className="search__results">
+      <h1 className="search__results__title">Search Results for: "{query}"</h1>
+
+        {products.map((product) => (
+    
+            <div key={product.id} className="productcards__card">
+              {product.colorOptions.map((option, i) => ( <div className='productcards-img__conatiner' >
+                <img src={option.img} alt={product.name} key={i} />
+              </div>
+              ))}
+              <p>{product.name}</p>
+              <p>{product.subtitle}</p>
+              <p>{product.price} <span>{product.currency}</span></p>
+              <div className='button-stock__container'>
+                <button>Add to Cart</button>
+              <span>
+                    {product.stock > 0 ? (
+                      <>
+                        {product.stock} in stock <GoDotFill style={{ color: 'green' }} />
+                      </>
+                    ) : (
+                      <>
+                        Out of stock <GoDotFill style={{ color: 'red' }} />
+                      </>
+                    )}
+              </span>
+
+              </div>
+            </div>
+          ))}
+    </div>
+  );
+}

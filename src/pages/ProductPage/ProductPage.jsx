@@ -1,8 +1,14 @@
 
 import React, { useEffect, useState } from 'react';
 import SortBy from '../../components/SortBy/SortBy';
-import ProductCards from '../../components/Productcard/Productcard';
+import ProductCards from '../../components/ProductCard/ProductCard';
 import './ProductPage.scss';
+
+
+/* ----------------------added Denisse-------------------------- */
+import { useLocation } from 'react-router';
+import SearchedResults from '../../components/SearchBar/SearchResults';
+/* ----------------------------------------------------------- */
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
@@ -11,6 +17,13 @@ const ProductPage = () => {
     color: [],
     priceOrder: 'none', // 'asc' | 'desc' | 'none'
   });
+
+  /* --------------------- added Denisse-------------------------- */
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const query = queryParams.get("query");
+   /* -------------------------------------------------------------- */
+
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products?limit=12')
@@ -47,13 +60,20 @@ const ProductPage = () => {
     });
 
   return (
-    <div className="product-page">
-      <h2>Products</h2>
-      <div className="product-page__layout">
-        <SortBy filters={filters} onFilterChange={handleFilterChange} />
-        <ProductCards products={filteredProducts} />
-      </div>
-    </div>
+
+    <>
+    {query ? (
+        <SearchedResults products={products} />
+      ) : (
+        <div className="product-page">
+          <h2>Products</h2>
+          <div className="product-page__layout">
+            <SortBy filters={filters} onFilterChange={handleFilterChange} />
+            <ProductCards products={filteredProducts} />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

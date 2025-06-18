@@ -26,3 +26,33 @@
       }
     }
   }
+
+  .search__results{
+     background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      text-align: center;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      .search__results__title{
+        grid-column: 1/-1;
+      }
+
+    }
+
+    .no-results{
+      text-align: center;
+      margin: 1rem;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    .button-stock__container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
