@@ -1,11 +1,11 @@
 import './navStyle.scss'
-import '../SearchBar/SearchBar.scss'
 
 import { NavLink } from 'react-router'
 import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import LogoutButton from '../LogoutButton'
-import { FaSearch } from "react-icons/fa";
+import SearchBar from '../SearchBar/SearchBar';
+
 
 export default function Navegation() {
 
@@ -18,12 +18,7 @@ export default function Navegation() {
     <li className="menuList"><NavLink className="menuLink" to="products">SHOP</NavLink></li>
     <li className="menuList"><NavLink className="menuLink" to="about">ABOUT US</NavLink></li>
     <li className="menuList"><NavLink className="menuLink" to="contact">CONTACT US</NavLink></li>
-    <li className="menuList search-bar">
-      <div className="search-container">
-        <input type="search" placeholder="Search product..." />
-        <button><FaSearch /></button>
-     </div>
-    </li>
+    <li className="menuList search-bar"><SearchBar/></li>
     <li className="menuList"><NavLink className="menuLink" to="profile"><FaUser /></NavLink></li>
     <li className="menuList"> <NavLink className="menuLink" to="cart"><FaShoppingCart /></NavLink></li>
 
