@@ -2,8 +2,11 @@ import { useLocation } from 'react-router';
 import { useEffect, useState } from 'react';
 import { fetchSearch } from '../../api/authService';
 import '../ProductCard/ProductCard.scss';
+
+
 import { GoDotFill } from "react-icons/go";
-import ReactImageFallback from "react-image-fallback";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
 
 
@@ -11,6 +14,8 @@ export default function SearchedResults() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get("query") || "";
+
+
 
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
@@ -37,6 +42,11 @@ export default function SearchedResults() {
     return <div className='no-results'>No products found for "{query}"</div>;
   }
 
+  console.log("Products fetched:", products);
+  const firstOption = products[0].colorOptions;
+
+  console.log("First color option:", firstOption);
+
   return (
     <div className="search__results">
       <h1 className="search__results__title">Search Results for: "{query}"</h1>
@@ -44,18 +54,19 @@ export default function SearchedResults() {
       {products.map((product) => (
         <section key={product.id} className="productcards__card searched__product-card">
           <div className='product__images__container'>
-            {product.colorOptions.map((option, i) => (
-              <img
-                className="product__image"
-                onError={(e) => {
-                  e.target.onerror = null; // prevents looping
-                  e.target.src = "./broken-img.png"; // fallback image
-                }}
-                src={!option.img ? "./placeholder.png" : option.img}
-                alt={option.color}
-                key={i}
-              />
-            ))}
+
+
+            { firstOption && (<img
+              className="product__image"
+              onError={(e) => {
+                e.target.onerror = null; // prevents looping
+                e.target.src = "./broken-img.png"; // fallback image
+              }}
+              src={!firstOption.img ? "./placeholder.png" : firstOption.img}
+              alt={product.name}
+              key={firstOption.id}
+            />)}
+           
           </div>
 
           <div className='product__info'>
