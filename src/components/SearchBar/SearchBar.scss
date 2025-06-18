@@ -1,3 +1,4 @@
+
  .search-bar {
     display: flex;
     align-items: center;
@@ -36,12 +37,21 @@
 
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
 
       .search__results__title{
         grid-column: 1/-1;
       }
-
     }
+
+    .searched__product-card{
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+    }
+
+   
 
     .no-results{
       text-align: center;
@@ -55,4 +65,35 @@
       justify-content: space-between;
       align-items: center;
       margin-top: 0.5rem;
+    }
+
+    .product__images__container{
+      // border: solid 1px red;
+      position: relative;
+      margin: 2rem 1rem;
+      // .product__image{
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   right: 0;
+      //   bottom: 0;
+      //   width: 100%;
+      //   height: auto;
+      //   max-height: 5rem;
+      // }
+
+        
+    //     .next ,
+    //     .prev{
+    //     position:absolute ;
+    //     top: 50%;
+    //     font-size: 3rem;
+    //     color: #D2D2D2;
+    //   }
+
+    //   .next{
+    //     right: 0;
+    //   }
+
+    // }
     }
