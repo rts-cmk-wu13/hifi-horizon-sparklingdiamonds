@@ -2,6 +2,8 @@ import "./HomePage.scss";
 import { NavLink } from 'react-router';
 
 
+
+
 export default function Home() {
 
     return (
@@ -14,6 +16,7 @@ export default function Home() {
 
                     <img src='/hero.svg' alt="to be hero_img" />
                 </div>
+
                 <section className="popularProductSec">
                     <div className="title_btn_box">
                         <h2>POPULAR PRODUCTS</h2>
@@ -21,9 +24,9 @@ export default function Home() {
                     </div>
                     <div className="product_container"> 
                         {/* this is  where popular products 
-                        get put in  the div product_box are standby
-                         stuff till the real ones get put in*/}
-                     <div className="product_box">
+                        get them from the api*/}
+
+                    <div className="product_box">
                         <img src="/logo.svg" alt="" />
                         <h4>standby product</h4>
                         <h2>price</h2>
