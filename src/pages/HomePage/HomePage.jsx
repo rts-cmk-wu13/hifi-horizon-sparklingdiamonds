@@ -27,9 +27,9 @@ export default function Home() {
                         {/* this is  where popular products 
                         get them from the api*/}
 
-                  
+                         {/* add popular products here */}
 
-                    {/* <div className="product_box">
+                    <div className="product_box">
                         <img src="/logo.svg" alt="" />
                         <h4>standby product</h4>
                         <h2>price</h2>
@@ -55,9 +55,9 @@ export default function Home() {
                         <h4>standby product</h4>
                         <h2>price</h2>
                         <button className="btn" id="shade" >button</button>
-                     </div> */}
+                     </div>
 
-                        {/* add popular products here */}
+              
                     </div>
                 </section>
                 {/* end of popular products section */}

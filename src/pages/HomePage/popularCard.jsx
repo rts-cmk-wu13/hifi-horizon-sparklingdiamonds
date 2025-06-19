@@ -1,4 +1,4 @@
-import '../../api/authService.js/fetchProducts';
+import {fetchProducts} from '../../api/authService.js';
 /* import  */
 
 
