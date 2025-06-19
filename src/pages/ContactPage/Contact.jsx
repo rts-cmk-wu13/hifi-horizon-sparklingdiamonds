@@ -7,10 +7,8 @@ export default function Contact() {
 
 
     const actionData = useActionData();
-    console.log(actionData);
+    //console.log(actionData);
     
-
-
     return (
     <>
     
@@ -20,6 +18,13 @@ export default function Contact() {
            text="GET IN TOUCH WITH US"
            style="page__header"
            />
+            
+            <div className="error submit__error">
+                {actionData?.error && (
+                <p className="form__error-message">{actionData.error}</p>
+                )}        
+            </div>
+
 
             <Form className='form' method='post' /* onSubmit={handleSubmit} */>
             <div className="form__group">
