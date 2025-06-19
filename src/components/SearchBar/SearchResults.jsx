@@ -5,9 +5,6 @@ import '../ProductCard/ProductCard.scss';
 
 
 import { GoDotFill } from "react-icons/go";
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
-
 
 
 export default function SearchedResults() {
