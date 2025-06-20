@@ -3,7 +3,7 @@
 /* -------------------------CREATE AN ACCOUNT --------------------------------- */
 
 export default async function registerUser(user) {
-  const response = await fetch("http://localhost:4000/register", {
+  const response = await fetch("https://hifi-api-o08m.onrender.com/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export default async function registerUser(user) {
 
 
 export async function loginUser(credentials) {
-  const response = await fetch('http://localhost:4000/login', {
+  const response = await fetch('https://hifi-api-o08m.onrender.com/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ export async function fetchProducts() {
 
 export async function fetchUserById(id, token) {
   try {
-    const response = await fetch(`http://localhost:4000/600/users/${id}`, {
+    const response = await fetch(`https://hifi-api-o08m.onrender.com/users/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
@@ -102,7 +102,7 @@ export function parseJwt(token) {
 
 
 export async function fetchAboutUs() {
-  const response = await fetch('http://localhost:4000/aboutUs', {
+  const response = await fetch('https://hifi-api-o08m.onrender.com/aboutUs', {
     headers: {
       'Content-Type': 'application/json',
     },
@@ -121,7 +121,7 @@ export async function fetchAboutUs() {
 
 
  export async function fetchSearch(query) {
-    const response = await fetch(`http://localhost:4000/products?q=${query}`, {
+    const response = await fetch(`https://hifi-api-o08m.onrender.com/products?q=${query}`, {
         headers: {
             'Content-Type': 'application/json',
         },
