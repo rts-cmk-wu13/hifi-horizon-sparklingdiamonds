@@ -33,10 +33,10 @@ export default function Footer() {
 
 
                 <div className='policyBox'>
-                    <p>Returns & Refunds</p>
-                    <p>Delivery</p>
-                    <p>Privacy Policy</p>
-                    <p>Terms & Conditions</p>
+                    <NavLink to="more-info"><p>Returns & Refunds</p></NavLink>
+                    <NavLink to="more-info"><p>Delivery</p></NavLink>
+                    <NavLink to="more-info"><p>Privacy Policy</p></NavLink>
+                    <NavLink to="more-info"><p>Terms & Conditions</p></NavLink>
                 </div>
 
                 <div className='contactBox'>

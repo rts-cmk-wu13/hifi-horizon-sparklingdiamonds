@@ -1,0 +1,25 @@
+@use "./openingTimeStyle";
+@use "./popular";
+@use "./signUp";
+
+section, .sign_up_box{
+       padding-top: 5em;
+    padding-bottom: 3em;
+
+
+}
+
+.heroImgHome{
+ height: auto;
+ text-align: center;
+
+ img{
+    max-width: 1520px;
+    width: 1520px;
+ background-position: center;
+ background-size: cover;
+ background-repeat: no-repeat;
+ position: relative;}
+}
+/* you can touch the styling for the hero image
+ if you have a better and more effcient way */

@@ -1,0 +1,29 @@
+.popularProductSec {
+
+
+    .title_btn_box {
+
+         display: flex;
+    justify-content: space-evenly;
+    }
+}
+
+.product_container {
+    display: flex;
+    justify-content: space-evenly;
+
+    .product_box {
+        /* this is for a test until popular product
+         component is made and put in */
+
+         text-align: center;
+        background-color: #FFF;
+        box-shadow: 0.3rem 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.25);
+        max-width: 30rem;
+
+        img{
+            width: 13rem;
+            margin: 2em;
+        }
+    }
+}
