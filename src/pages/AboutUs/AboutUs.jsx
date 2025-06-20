@@ -2,10 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { fetchAboutUs } from '../../api/authService';
 import './AboutUs.scss';
 
+
+/* -----------------------loader------------------ */
+
+import Loader from '../../components/Loader/Loader';
+/* ---------------------------------------------- */
+
 export default function AboutUs() {
   const [aboutData, setAboutData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+
 
   useEffect(() => {
     loadAboutData();
@@ -28,7 +36,7 @@ export default function AboutUs() {
     return (
       <div className="our-history">
         <div className="container">
-          <div className="loading-spinner">Indlæser...</div>
+          <div className="loading-spinner">{<Loader/>}</div>
         </div>
       </div>
     );
