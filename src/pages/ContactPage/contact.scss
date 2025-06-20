@@ -9,7 +9,19 @@
     text-align: center;
 }
 
-  .contact__header{
+.submit__error{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+.succes__page{
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 5rem 1rem;
+}
+
+  .page__header{
     margin: 2rem;
   }
 
@@ -29,9 +41,12 @@
         color:col.$main-Page-Color;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         margin-block: 3rem;
-        display: flex;
-        justify-self: end;
     }
+
+        .flex__end{
+            display: flex;
+            justify-self: end;
+        }
 
     .form__group{
         display: flex;

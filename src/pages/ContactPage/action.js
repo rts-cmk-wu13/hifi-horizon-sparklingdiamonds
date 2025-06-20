@@ -17,11 +17,12 @@ export async function handleSubmit({ request }) {
   if (!result.success) {
     // This will create a structured error object for the fields
     const errors = result.error.flatten();
+    
     return { errors: errors.fieldErrors, values: data };
   }
 
   try {
-    const response = await fetch('http://localhost:5000/send-email', {
+    const response = await fetch('https://hifi-mail.onrender.com/send-email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(result.data),
@@ -31,13 +32,13 @@ export async function handleSubmit({ request }) {
       throw new Error('Network response was not ok');
     }
 
-    console.log('Form submitted successfully');
+    // console.log('Form submitted successfully');
     return redirect('/thanks');
-  } catch (error) {
-    console.error('Error submitting form:', error);
-    return {
-      error: 'There was a problem submitting the form. Please try again later.',
-      values: data,
-    };
-  }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      return {
+        error: 'There was a problem submitting the form. Please try again later!!!',
+        values: data,
+      };
+    }
 }

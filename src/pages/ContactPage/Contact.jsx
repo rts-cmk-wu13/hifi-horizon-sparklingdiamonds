@@ -7,10 +7,8 @@ export default function Contact() {
 
 
     const actionData = useActionData();
-    console.log(actionData);
+    //console.log(actionData);
     
-
-
     return (
     <>
     
@@ -18,8 +16,15 @@ export default function Contact() {
 
            <SectionHeader
            text="GET IN TOUCH WITH US"
-           style="contact__header"
+           style="page__header"
            />
+            
+            <div className="error submit__error">
+                {actionData?.error && (
+                <p className="form__error-message">{actionData.error}</p>
+                )}        
+            </div>
+
 
             <Form className='form' method='post' /* onSubmit={handleSubmit} */>
             <div className="form__group">
@@ -54,7 +59,9 @@ export default function Contact() {
                 {actionData?.errors?.message && ( <p className="error">{actionData.errors.message[0]}</p>)}
             </div>
 
-            <button className='form__btn' type="submit">Send</button>
+            {/* {actionData?.errors} */}
+
+            <button className='form__btn flex__end' type="submit">Send</button>
             </Form>
 
          <div className="contact__footer">

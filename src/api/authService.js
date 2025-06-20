@@ -1,6 +1,6 @@
 // Register an user 
 
-
+/* -------------------------CREATE AN ACCOUNT --------------------------------- */
 
 export default async function registerUser(user) {
   const response = await fetch("http://localhost:4000/register", {
@@ -19,8 +19,7 @@ export default async function registerUser(user) {
   return response.json(); // Or response.text(), depending on backend
 }
 
-
-// Login
+/* -------------------------LOGIN --------------------------------- */
 
 
 export async function loginUser(credentials) {
@@ -42,24 +41,8 @@ export async function loginUser(credentials) {
 }
 
 
-// Statements
 
-// export async function fetchStatements() {
-//   const response = await fetch('http://localhost:4000/statements', {
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
-
-//   if (!response.ok) {
-//     throw new Error('Failed to fetch statements');
-//   }
-
-//   return await response.json();
-// }
-
-
-// Products
+/* -------------------------PRODUCTS --------------------------------- */
 
 export async function fetchProducts() {
   const response = await fetch('http://localhost:4000/products', {
@@ -69,7 +52,7 @@ export async function fetchProducts() {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to fetch statements');
+    throw new Error('Failed to fetch products');
   }
 
   return await response.json();
@@ -77,7 +60,9 @@ export async function fetchProducts() {
 
 
 
-// Profile 
+
+
+/* -------------------------USER --------------------------------- */
 
 export async function fetchUserById(id, token) {
   try {
@@ -105,5 +90,47 @@ export function parseJwt(token) {
   } catch (e) {
     return null;
   }
+}
+
+
+
+
+
+/* -------------------------ABOUT US --------------------------------- */
+
+
+
+
+export async function fetchAboutUs() {
+  const response = await fetch('http://localhost:4000/aboutUs', {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch about us data');
+  }
+
+  return await response.json()
+}
+
+
+/* -------------------------SEARCH --------------------------------- */
+
+
+
+ export async function fetchSearch(query) {
+    const response = await fetch(`http://localhost:4000/products?q=${query}`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+       // console.log(response);
+    if (!response.ok) {
+        throw new Error('Product not found!');
+    }
+
+    return await response.json()
 }
 

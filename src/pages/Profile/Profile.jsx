@@ -8,6 +8,7 @@ export default function Profile() {
        <section className="card">
              <SectionHeader
           text="YOUR PROFILE INFORMATION"
+          style="page__header"
           />
 
           <MyProfile/>
