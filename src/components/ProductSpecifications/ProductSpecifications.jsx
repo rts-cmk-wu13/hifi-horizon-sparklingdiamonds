@@ -1,29 +1,25 @@
-
 import React from 'react';
 import './ProductSpecifications.scss';
 
-const ProductSpecifications = () => {
+const ProductSpecifications = ({ product }) => {
+  if (!product) {
+    return null; // eller loading-state, hvis relevant
+  }
+
+  // Dynamisk opbygning af specs ud fra product objektet
   const specifications = [
-    { label: 'Digital Inputs', value: 'USB, Ethernet, Wi-Fi' },
-    { label: 'Digital Outputs', value: 'AES/EBU, Coaxial, Toslink' },
-    { label: 'Analog Outputs', value: 'None (Digital Only)' },
-    { label: 'Supported Formats', value: 'PCM up to 32bit/384kHz, DSD512' },
-    { label: 'Network', value: 'Gigabit Ethernet, Wi-Fi 802.11ac' },
-    { label: 'Storage', value: '1TB Internal SSD (Optional)' },
-    { label: 'Processing', value: 'Tesla G2 Platform' },
-    { label: 'Memory', value: '2GB DDR3 RAM' },
-    { label: 'Display', value: '4-inch Color LCD' },
-    { label: 'Control', value: 'Lightning DS App, Web Interface' },
-    { label: 'Power Consumption', value: '30W (Typical)' },
-    { label: 'Standby Power', value: '<1W' },
-    { label: 'Dimensions (W×H×D)', value: '340 × 80 × 320 mm' },
-    { label: 'Weight', value: '6.5 kg' },
-    { label: 'Operating Temperature', value: '0°C to 40°C' },
-    { label: 'Storage Temperature', value: '-20°C to 60°C' },
-    { label: 'Humidity', value: '10% to 90% (Non-condensing)' },
-    { label: 'Finish Options', value: 'Black, Silver, Gold' },
-    { label: 'Warranty', value: '2 Years Limited Warranty' },
-    { label: 'Certifications', value: 'CE, FCC, IC' }
+    { label: 'Brand', value: product.brand },
+    { label: 'Model', value: product.model },
+    { label: 'Price', value: product.currency + product.price },
+    { label: 'Weight', value: product.weight ? product.weight + ' kg' : 'N/A' },
+    { label: 'Dimensions (W×H×D)', value: product.dimensions ? `${product.dimensions.width} × ${product.dimensions.height} × ${product.dimensions.depth} ${product.dimensions.unit}` : 'N/A' },
+    { label: 'Warranty', value: product.warranty || 'N/A' },
+    { label: 'Color Options', value: product.colorOptions ? product.colorOptions.map(c => c.name).join(', ') : 'N/A' },
+    { label: 'Category', value: product.category || 'N/A' },
+    { label: 'Tags', value: product.tags ? product.tags.join(', ') : 'N/A' },
+    { label: 'Stock Status', value: product.stockStatus || 'N/A' },
+    { label: 'Description', value: product.description || 'N/A' },
+    // Tilføj gerne flere felter her hvis API'et indeholder flere specifikationer
   ];
 
   return (

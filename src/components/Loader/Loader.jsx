@@ -1,4 +1,4 @@
- import CircleLoader from 'react-spinners/CircleLoader';
+import CircleLoader from 'react-spinners/CircleLoader';
 
 export default function Loader() {
 
