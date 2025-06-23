@@ -1,5 +1,6 @@
-import { MdEdit } from "react-icons/md";
-// import { CgFileDocument } from "react-icons/cg";
+
+ "../pages/Profile/EditProfile";
+
 
 export default function InfoElement({icon,child,elementName,elementInfo,addressChild}) {
 
@@ -15,11 +16,7 @@ export default function InfoElement({icon,child,elementName,elementInfo,addressC
                         {addressChild}
                     </div>
                 </div>
-                <button className="Info__element__btn">
-                    {child}
-                    <MdEdit />
-                    {/* <CgFileDocument /> */}
-                </button>
+               
             </section>
         </>
     )

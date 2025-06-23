@@ -20,7 +20,6 @@ export default function Navegation() {
       <nav className="menu">
         <ul>
           <NavLink to="/"><img src='/logo.svg' alt="logo" /></NavLink>
-{/* put drop down here */}
 
 <Drop />
 

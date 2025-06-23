@@ -20,6 +20,9 @@ import Profile from "./pages/Profile/Profile";
 import RequiredAuth from "./components/RequiredAuth";
 import { handleSubmit } from "./pages/ContactPage/action";
 import SuccessfulRegistration from "./pages/CreateAccount/SuccessfulRegistration";
+import EditProfile from "./pages/Profile/EditProfile.jsx";
+import MyOrders from "./pages/Profile/MyOrders.jsx";
+import MyProfile from "./pages/Profile/MyProfileInfo.jsx";
 
 
 
@@ -46,7 +49,19 @@ const router = createBrowserRouter([
         path: "profile",
         element: (
           <RequiredAuth>
-            <Profile />
+            <Profile/>
+          </RequiredAuth>
+        ),
+        children: [
+          { index: true, element: <MyProfile/>},
+          { path:'myorders', element: <MyOrders/>} 
+        ]
+      },
+      {
+        path: "editprofile/:elmt",
+        element: (
+          <RequiredAuth>
+            <EditProfile />
           </RequiredAuth>
         ),
       },

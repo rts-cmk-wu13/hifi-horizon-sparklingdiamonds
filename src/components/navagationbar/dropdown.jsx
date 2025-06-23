@@ -18,7 +18,6 @@ export default function Drop() {
                     <li className='dropdown_items'><NavLink to="products">Intergrated Amplifiers</NavLink></li>
                     <li className='dropdown_items'><NavLink to="products">Power Amplifiers</NavLink></li>
                     <li className='dropdown_items'><NavLink to="products">Tube Amplifiers</NavLink></li>
-
                 </ul>
 
             </ul>
