@@ -23,7 +23,7 @@ const ProductPage = () => {
       .then(data => {
         const enriched = data.map(p => ({
           ...p,
-          color: p.colorOptions?.[0]?.name || 'Unknown',
+          colorOptions: p.colorOptions || [],
           image: p.colorOptions?.[0]?.img || '',
         }));
         setProducts(enriched);
@@ -39,7 +39,8 @@ const ProductPage = () => {
       const brandMatch =
         filters.brand.length === 0 || filters.brand.includes(product.brand);
       const colorMatch =
-        filters.color.length === 0 || filters.color.includes(product.color);
+        filters.color.length === 0 || product.colorOptions.some(co => filters.color.includes(co.name));
+
       return brandMatch && colorMatch;
     })
     .sort((a, b) => {
