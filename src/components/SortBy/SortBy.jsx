@@ -43,7 +43,7 @@ const SortBy = ({ filters, onFilterChange }) => {
         </div>
         {expanded.brand && (
           <div className="sortby__options">
-            {['Steelseries', 'Logitech', 'Apple'].map((brand) => (
+            {['Marantz', 'Auralic', 'Cambridge Audio', 'Bluesound', 'iFi Audio', 'Denon', 'Yamaha', 'Oppo', 'Panasonic', 'Sony', 'Rotel'].map((brand) => (
               <label key={brand} className="sortby__option">
                 <span>{brand}</span>
                 <span
