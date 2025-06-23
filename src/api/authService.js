@@ -94,8 +94,6 @@ export function parseJwt(token) {
 
 
 
-
-
 /* -------------------------ABOUT US --------------------------------- */
 
 
@@ -134,3 +132,25 @@ export async function fetchAboutUs() {
     return await response.json()
 }
 
+
+
+/* --------------------------EditUser-------------------------- */
+export async function editUser(id, updatedData, token) {
+  const response = await fetch(`https://hifi-api-o08m.onrender.com/users/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify(updatedData),
+  })
+
+  if (!response.ok) {
+    const err = await response.json();
+    throw new Error(err.message || 'Failed to update user');
+  }
+
+  
+  return response.json();
+}
+/* ------------------------------------------------------------ */
