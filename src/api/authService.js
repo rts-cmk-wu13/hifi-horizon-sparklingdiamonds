@@ -1,9 +1,9 @@
 // Register an user 
 
-
+/* -------------------------CREATE AN ACCOUNT --------------------------------- */
 
 export default async function registerUser(user) {
-  const response = await fetch("http://localhost:4000/register", {
+  const response = await fetch("https://hifi-api-o08m.onrender.com/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,12 +19,11 @@ export default async function registerUser(user) {
   return response.json(); // Or response.text(), depending on backend
 }
 
-
-// Login
+/* -------------------------LOGIN --------------------------------- */
 
 
 export async function loginUser(credentials) {
-  const response = await fetch('http://localhost:4000/login', {
+  const response = await fetch('https://hifi-api-o08m.onrender.com/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -42,24 +41,8 @@ export async function loginUser(credentials) {
 }
 
 
-// Statements
 
-// export async function fetchStatements() {
-//   const response = await fetch('http://localhost:4000/statements', {
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
-
-//   if (!response.ok) {
-//     throw new Error('Failed to fetch statements');
-//   }
-
-//   return await response.json();
-// }
-
-
-// Products
+/* -------------------------PRODUCTS --------------------------------- */
 
 export async function fetchProducts() {
   const response = await fetch('http://localhost:4000/products', {
@@ -69,7 +52,7 @@ export async function fetchProducts() {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to fetch statements');
+    throw new Error('Failed to fetch products');
   }
 
   return await response.json();
@@ -77,11 +60,13 @@ export async function fetchProducts() {
 
 
 
-// Profile 
+
+
+/* -------------------------USER --------------------------------- */
 
 export async function fetchUserById(id, token) {
   try {
-    const response = await fetch(`http://localhost:4000/600/users/${id}`, {
+    const response = await fetch(`https://hifi-api-o08m.onrender.com/users/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
@@ -107,12 +92,17 @@ export function parseJwt(token) {
   }
 }
 
-// About Us
 
-// About Us
+
+
+
+/* -------------------------ABOUT US --------------------------------- */
+
+
+
 
 export async function fetchAboutUs() {
-  const response = await fetch('http://localhost:4000/aboutUs', {
+  const response = await fetch('https://hifi-api-o08m.onrender.com/aboutUs', {
     headers: {
       'Content-Type': 'application/json',
     },
@@ -122,5 +112,24 @@ export async function fetchAboutUs() {
     throw new Error('Failed to fetch about us data');
   }
 
-  return await response.json();
+  return await response.json()
+}
+
+
+/* -------------------------SEARCH --------------------------------- */
+
+
+
+ export async function fetchSearch(query) {
+    const response = await fetch(`https://hifi-api-o08m.onrender.com/products?q=${query}`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+       // console.log(response);
+    if (!response.ok) {
+        throw new Error('Product not found!');
+    }
+
+    return await response.json()
 }
