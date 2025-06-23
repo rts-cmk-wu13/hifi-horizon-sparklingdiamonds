@@ -1,22 +1,15 @@
-
 import React, { useState } from 'react';
 import './ProductSlider.scss';
 
-export default function ProductSlider() {
+export default function ProductSlider({ product }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
-  const productImages = [
-    '/images/auralic-aries-g2-1-black.jpg',
-    '/images/auralic-aries-g2-1-silver.jpg',
-    '/images/auralic-aries-g2-1-gold.jpg'
-  ];
-
-  const colorOptions = [
-    { name: 'Black', color: '#000000' },
-    { name: 'Silver', color: '#C0C0C0' },
-    { name: 'Gold', color: '#FFD700' }
-  ];
+  const productImages = product.colorOptions?.map(opt => opt.img) || [];
+  const colorOptions = product.colorOptions?.map(opt => ({
+    name: opt.name,
+    color: opt.hex || '#ccc'
+  })) || [];
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % productImages.length);
@@ -31,7 +24,11 @@ export default function ProductSlider() {
   };
 
   const handleAddToCart = () => {
-    console.log('Added to cart:', { quantity, color: colorOptions[currentSlide].name });
+    console.log('Added to cart:', {
+      productId: product.id,
+      quantity,
+      color: colorOptions[currentSlide]?.name
+    });
   };
 
   return (
@@ -41,20 +38,20 @@ export default function ProductSlider() {
           <button className="slider-btn prev" onClick={prevSlide}>
             &#8249;
           </button>
-          
+
           <div className="slider-content">
             <img 
               src={productImages[currentSlide]} 
-              alt={`Auralic Aries G2.1 Streamer - ${colorOptions[currentSlide].name}`}
+              alt={`${product.name} - ${colorOptions[currentSlide]?.name}`}
               className="product-image"
             />
           </div>
-          
+
           <button className="slider-btn next" onClick={nextSlide}>
             &#8250;
           </button>
         </div>
-        
+
         <div className="slider-dots">
           {productImages.map((_, index) => (
             <button
@@ -67,28 +64,11 @@ export default function ProductSlider() {
       </div>
 
       <div className="product-info">
-        <h1 className="product-title">Auralic Aries G2.1 Streamer</h1>
-        <p className="product-subtitle">(Digital Output)</p>
-        
+        <h1 className="product-title">{product.name}</h1>
+        <p className="product-subtitle">{product.subtitle}</p>
+
         <div className="product-description">
-          <p>
-            G2.1 is the next logical evolutionary step, resulting from a desire to 
-            improve upon the original G2 series. At AURALIC, we always work to create 
-            a new approach to digital music that pushes the boundaries of sonic 
-            quality, incorporating state-of-the-art technologies and delivered with 
-            an innovative features. G2.1 is built for unlimited levels of sonic performance.
-          </p>
-          
-          <p>
-            Every G2.1 series component, including the ARIES G2.1, sports an all-new 
-            industrial design that's engineered to set a new standard for sound 
-            quality, enhance the user experience, and look every bit as good as it 
-            sounds with its contemporary aesthetic. Offering features like a copper 
-            shield and galvanic isolation, Unity Chassis II beautifully houses and 
-            optimizes the sound of the ARIES G2.1 and ensures it is the most capable 
-            and feature-rich way to introduce streaming to your audio system that 
-            we've ever created.
-          </p>
+          <p>{product.description}</p>
         </div>
 
         <div className="color-options">
@@ -104,8 +84,8 @@ export default function ProductSlider() {
         </div>
 
         <div className="price-section">
-          <span className="price">£ 4,799.00</span>
-          <span className="stock-status">In stock ●</span>
+          <span className="price">£ {product.price.toFixed(2)}</span>
+          <span className="stock-status">{product.stockStatus} ●</span>
         </div>
 
         <div className="purchase-controls">
@@ -129,7 +109,7 @@ export default function ProductSlider() {
               +
             </button>
           </div>
-          
+
           <button className="add-to-cart-btn" onClick={handleAddToCart}>
             Add to cart
           </button>
@@ -137,5 +117,4 @@ export default function ProductSlider() {
       </div>
     </div>
   );
-};
-
+}

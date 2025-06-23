@@ -1,8 +1,20 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import './SortBy.scss';
 
 const SortBy = ({ filters, onFilterChange }) => {
+  const [expanded, setExpanded] = useState({
+    brand: true,
+    color: true,
+    price: false,
+  });
+
+  const toggleSection = (section) => {
+    setExpanded(prev => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
   const handleSelect = (type, value) => {
     const newFilters = { ...filters };
 
@@ -21,46 +33,75 @@ const SortBy = ({ filters, onFilterChange }) => {
 
   return (
     <div className="sortby">
-      <h3>Sort by</h3>
+      <h2 className="sortby__title">Sort by</h2>
 
+      {/* Brand */}
       <div className="sortby__section">
-        <label>Brand</label>
-        {['Apple', 'Logitech', 'Steelseries'].map(brand => (
-          <div key={brand}>
-            <input
-              type="checkbox"
-              checked={filters.brand.includes(brand)}
-              onChange={() => handleSelect('brand', brand)}
-            />
-            <span>{brand}</span>
+        <div className="sortby__header" onClick={() => toggleSection('brand')}>
+          <span>Brand</span>
+          <span className={`arrow ${expanded.brand ? 'up' : 'down'}`}></span>
+        </div>
+        {expanded.brand && (
+          <div className="sortby__options">
+            {['Steelseries', 'Logitech', 'Apple'].map((brand) => (
+              <label key={brand} className="sortby__option">
+                <span>{brand}</span>
+                <span
+                  className={`radio ${
+                    filters.brand.includes(brand) ? 'checked' : ''
+                  }`}
+                  onClick={() => handleSelect('brand', brand)}
+                >
+                  {filters.brand.includes(brand) && <span className="checkmark">✓</span>}
+                </span>
+              </label>
+            ))}
           </div>
-        ))}
+        )}
       </div>
 
+      {/* Color */}
       <div className="sortby__section">
-        <label>Color</label>
-        {['White', 'Black', 'Grey'].map(color => (
-          <div key={color}>
-            <input
-              type="checkbox"
-              checked={filters.color.includes(color)}
-              onChange={() => handleSelect('color', color)}
-            />
-            <span>{color}</span>
+        <div className="sortby__header" onClick={() => toggleSection('color')}>
+          <span>Color</span>
+          <span className={`arrow ${expanded.color ? 'up' : 'down'}`}></span>
+        </div>
+        {expanded.color && (
+          <div className="sortby__options">
+            {['White', 'Black', 'Grey'].map((color) => (
+              <label key={color} className="sortby__option">
+                <span>{color}</span>
+                <span
+                  className={`radio ${
+                    filters.color.includes(color) ? 'checked' : ''
+                  }`}
+                  onClick={() => handleSelect('color', color)}
+                >
+                  {filters.color.includes(color) && <span className="checkmark">✓</span>}
+                </span>
+              </label>
+            ))}
           </div>
-        ))}
+        )}
       </div>
 
+      {/* Price */}
       <div className="sortby__section">
-        <label>Price</label>
-        <select
-          value={filters.priceOrder}
-          onChange={e => handleSelect('priceOrder', e.target.value)}
-        >
-          <option value="none">None</option>
-          <option value="asc">Low to High</option>
-          <option value="desc">High to Low</option>
-        </select>
+        <div className="sortby__header" onClick={() => toggleSection('price')}>
+          <span>Price</span>
+          <span className={`arrow ${expanded.price ? 'up' : 'down'}`}></span>
+        </div>
+        {expanded.price && (
+          <select
+            className="sortby__select"
+            value={filters.priceOrder}
+            onChange={(e) => handleSelect('priceOrder', e.target.value)}
+          >
+            <option value="none">None</option>
+            <option value="asc">Low to High</option>
+            <option value="desc">High to Low</option>
+          </select>
+        )}
       </div>
     </div>
   );
