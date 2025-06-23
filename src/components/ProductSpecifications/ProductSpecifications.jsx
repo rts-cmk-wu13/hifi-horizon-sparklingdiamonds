@@ -19,7 +19,7 @@ const ProductSpecifications = ({ product }) => {
     { label: 'Tags', value: product.tags ? product.tags.join(', ') : 'N/A' },
     { label: 'Stock Status', value: product.stockStatus || 'N/A' },
     { label: 'Description', value: product.description || 'N/A' },
-    // Tilføj gerne flere felter her hvis API'et indeholder flere specifikationer
+   
   ];
 
   return (
