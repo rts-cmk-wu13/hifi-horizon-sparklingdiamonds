@@ -68,7 +68,7 @@ const SortBy = ({ filters, onFilterChange }) => {
         </div>
         {expanded.color && (
           <div className="sortby__options">
-            {['White', 'Black', 'Grey'].map((color) => (
+            {['Silver', 'Black', 'Gold'].map((color) => (
               <label key={color} className="sortby__option">
                 <span>{color}</span>
                 <span
