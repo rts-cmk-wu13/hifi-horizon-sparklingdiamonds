@@ -1,23 +1,43 @@
-
 .breadcrumb {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 2rem 0;
+    position: relative;
+  
+    // Hvid bjælke der forbinder ikonerne
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 36px;
+      background-color: #fff;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
   
     &__step {
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #f1f1f1;
-      padding: 1rem;
+      width: 80px;
+      height: 80px;
+      background-color: #E8E8E8;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       position: relative;
       transition: background-color 0.3s ease;
+      z-index: 2;
+      
+      // Gap mellem ikonerne
+      &:not(:last-child) {
+        margin-right: 86px;
+      }
   
       &.active {
-        background-color: #3a4454;
+        background-color: #495464;
   
         .breadcrumb__icon {
           color: #fff;
@@ -27,18 +47,6 @@
   
     &__icon {
       font-size: 1.5rem;
-      color: #3a4454;
-    }
-  
-    &__line {
-      width: 4rem;
-      height: 0.4rem;
-      background-color: #f1f1f1;
-      margin: 0 0.5rem;
-      border-radius: 2px;
-    }
-  
-    .active + .breadcrumb__line {
-      background-color: #3a4454;
+      color: #495464;
     }
   }
