@@ -21,7 +21,7 @@ const CartPage = () => {
         console.log('Response status:', response.status);
         console.log('Response ok:', response.ok);
         
-        // Check if response is ok
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`);
         }
@@ -31,7 +31,6 @@ const CartPage = () => {
         console.log('Data type:', typeof data);
         console.log('Is array:', Array.isArray(data));
         
-        // Ensure data is an array (as expected for multiple products)
         const productsArray = Array.isArray(data) ? data : [];
         
         if (!Array.isArray(data)) {
@@ -54,12 +53,10 @@ const CartPage = () => {
             // Tjek om produktet er på lager
             if (product.stockStatus !== 'In stock') {
               console.log('Product not in stock, cannot add to cart:', product.stockStatus);
-              // Kunne tilføje en toast notification her
               navigate('/cart', { replace: true });
               return;
             }
 
-            // Tilføj standardfarve (første tilgængelige farve)
             const defaultColor = product.colorOptions?.find(color => color.available) || product.colorOptions?.[0];
             const productToAdd = {
               ...product,
@@ -113,7 +110,7 @@ const CartPage = () => {
         setError(error.message);
         setProducts([]);
         
-        // Still try to load existing cart even if API fails
+        
         const savedCart = sessionStorage.getItem('cart');
         if (savedCart) {
           try {
@@ -149,7 +146,7 @@ const CartPage = () => {
         newItems = [...prevItems, { ...product, quantity: 1 }];
       }
       
-      // Save to sessionStorage
+      // Gem i sessionStorage
       sessionStorage.setItem('cart', JSON.stringify(newItems));
       return newItems;
     });
@@ -214,7 +211,7 @@ const CartPage = () => {
     );
   }
 
-  // Show error if API failed but still show cart if it exists
+  // Error handling
   if (error && cartItems.length === 0) {
     return (
       <div className="cart-page">
@@ -241,7 +238,7 @@ const CartPage = () => {
   return (
     <div className="cart-page">
       <div className="container">
-        {/* Show warning if API failed but cart exists */}
+
         {error && cartItems.length > 0 && (
           <div className="cart-warning">
             <p>⚠️ Unable to load new products, but showing existing cart items.</p>
@@ -253,6 +250,13 @@ const CartPage = () => {
         {/* Cart Header */}
         <div className="cart-header">
           <h1 className="cart-header__title">Cart</h1>
+          
+          {/* Continue Shopping Button */}
+          <div className="cart-continue-shopping">
+              <Link to="/products" className="cart-continue-shopping__button">
+                ← Continue Shopping
+              </Link>
+            </div>
         </div>
 
         {/* Cart Content */}
@@ -340,12 +344,6 @@ const CartPage = () => {
               ))}
             </div>
 
-            {/* Continue Shopping Button */}
-            <div className="cart-continue-shopping">
-              <Link to="/products" className="cart-continue-shopping__button">
-                ← Continue Shopping
-              </Link>
-            </div>
 
             {/* Cart Summary */}
             <div className="cart-summary">
