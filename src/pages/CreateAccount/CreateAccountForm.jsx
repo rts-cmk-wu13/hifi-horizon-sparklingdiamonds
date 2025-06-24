@@ -53,7 +53,7 @@ export default function CreateAccountForm() {
        style="page__header"
       />
 
-      <Form className='form' onSubmit={handleSignUp}>
+    <Form className='form' onSubmit={handleSignUp}>
 
           <h3>CREATE NEW CUSTOMER ACCOUNT</h3>
 
