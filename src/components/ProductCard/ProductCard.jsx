@@ -5,7 +5,6 @@ const ProductCards = ({ products }) => {
   const navigate = useNavigate();
 
   const handleCompareClick = (productId) => {
-    // Hent eksisterende produkter fra sessionStorage
     const stored = sessionStorage.getItem('compareProducts');
     let existingProducts = [];
     
@@ -21,22 +20,15 @@ const ProductCards = ({ products }) => {
       }
     }
 
-    // Tjek om produktet allerede er i sammenligningen
     const productIdStr = productId.toString();
     if (!existingProducts.includes(productIdStr)) {
-      // Tilføj det nye produkt (maksimalt 3 produkter)
       existingProducts.push(productIdStr);
-      
-      // Max 3 produkter
       if (existingProducts.length > 3) {
-        existingProducts = existingProducts.slice(-3); // Behold de seneste 3
+        existingProducts = existingProducts.slice(-3);
       }
-      
-      // Gem i sessionStorage
       sessionStorage.setItem('compareProducts', JSON.stringify(existingProducts));
     }
 
-    // Naviger til sammenligning med alle produkter
     const urlParams = existingProducts.map(id => `product=${id}`).join('&');
     navigate(`/compare?${urlParams}`);
   };
@@ -50,11 +42,10 @@ const ProductCards = ({ products }) => {
           className="product-card__link"
         >
           <div className="product-card">
-            {/* Compare (forhindrer navigation til produktdetaljer) */}
             <div
               className="product-card__compare"
               onClick={(e) => {
-                e.preventDefault(); // stop klik på kortet
+                e.preventDefault();
                 handleCompareClick(product.id);
               }}
             >
@@ -66,14 +57,17 @@ const ProductCards = ({ products }) => {
               />
             </div>
 
-            {/* Produktbillede */}
+            {/* Produktbillede med fallback */}
             <img
               src={product.image}
               alt={product.name}
               className="product-card__image"
+              onError={(e) => {
+                e.target.onerror = null; // Forhindrer infinite loop
+                e.target.src = "produktbilleder/cd_afspillere/creek_evo_cd.jpg"; // Fallback billede
+              }}
             />
 
-            {/* Info */}
             <div className="product-card__info">
               <h2 className="product-card__name">{product.name}</h2>
               <p className="product-card__subtitle">{product.subtitle}</p>
@@ -82,7 +76,6 @@ const ProductCards = ({ products }) => {
               </p>
 
               <div className="product-card__bottom">
-                {/* Tilføj til kurv (forhindrer navigation til produktdetaljer) */}
                 <button
                   className="product-card__button"
                   onClick={(e) => {
