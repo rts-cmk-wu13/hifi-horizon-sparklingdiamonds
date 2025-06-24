@@ -1,0 +1,88 @@
+    /* 600px for tablet */
+   @media screen and (max-width: 600px){
+
+.menu nav, .menu ul, .menu li,.menu a{
+display: none;
+
+li{
+  justify-content: space-between;
+  text-align: center;
+}
+
+}
+
+
+
+            }  /*  480px for phone */
+
+     /*        .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #111;
+  color: white;
+  position: relative;
+
+  .nav-logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+
+    li a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+
+    div {
+      width: 25px;
+      height: 3px;
+      background: white;
+    }
+  }
+}
+
+// --- Responsive styles below ---
+@media (max-width: 450px) {
+  .navbar {
+    flex-direction: column;
+    padding-bottom: 3rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #111;
+    z-index: 999;
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    &.open .nav-links {
+      display: flex;
+    }
+
+    .burger {
+      display: flex;
+      margin-top: 0.5rem;
+    }
+  }
+}
+ */
