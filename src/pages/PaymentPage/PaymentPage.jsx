@@ -1,7 +1,10 @@
 import './PaymentPage.scss'
+
 import SectionHeader from "../../components/SectionHeader.jsx";
 import PaymentInfo from "./PaymentInfo.jsx";
 import PaymentOverview from "./PaymentOverview.jsx";
+import ShippingMethod from './Shipping/ShippingMethod.jsx';
+import PaymentMethod from './PaymentMethod.jsx';
 
 
 export default function PaymentPage() {   
@@ -12,13 +15,11 @@ export default function PaymentPage() {
         style="page__header"
         />
 
-        <PaymentOverview/>
-        
         <PaymentInfo/>
-
-       
-
-
+        <ShippingMethod/>
+        <PaymentOverview/>
+        <PaymentMethod/>
+        
     </>
     );
 }
