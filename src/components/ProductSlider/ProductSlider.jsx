@@ -23,35 +23,32 @@ export default function ProductSlider({ product }) {
   };
 
   const handleAddToCart = () => {
-    // Check if product is in stock
     if (product.stockStatus !== 'In stock') {
       console.log('Product not in stock, cannot add to cart:', product.stockStatus);
-      // Could add a toast notification here
+     
       return;
     }
 
-    // Get selected color
-    const selectedColor = colorOptions[currentSlide];
     
-    // Check if selected color is available
+    const selectedColor = colorOptions[currentSlide];
+
     if (selectedColor && !selectedColor.available) {
       console.log('Selected color not available:', selectedColor.name);
-      // Could add a toast notification here
       return;
     }
 
-    // Prepare product for cart
+    
     const productToAdd = {
       ...product,
       selectedColor: selectedColor,
       image: selectedColor?.img || product.image
     };
 
-    // Get existing cart from sessionStorage
+    
     const savedCart = sessionStorage.getItem('cart');
     const existingItems = savedCart ? JSON.parse(savedCart) : [];
     
-    // Find if product already exists in cart
+    
     const existingItem = existingItems.find(item => 
       item.id === product.id && 
       item.selectedColor?.name === selectedColor?.name
@@ -59,18 +56,18 @@ export default function ProductSlider({ product }) {
     
     let newItems;
     if (existingItem) {
-      // If same product with same color exists, increase quantity
+      
       newItems = existingItems.map(item =>
         item.id === product.id && item.selectedColor?.name === selectedColor?.name
           ? { ...item, quantity: item.quantity + quantity }
           : item
       );
     } else {
-      // Add new item to cart
+      // Tilføj nyt produkt til kurv
       newItems = [...existingItems, { ...productToAdd, quantity }];
     }
     
-    // Save to sessionStorage
+    // Gem i sessionStorage
     sessionStorage.setItem('cart', JSON.stringify(newItems));
     
     console.log('Added to cart:', {
@@ -80,7 +77,7 @@ export default function ProductSlider({ product }) {
       totalItems: newItems.length
     });
 
-    // Navigate to cart page
+    
     navigate('/cart');
   };
 
