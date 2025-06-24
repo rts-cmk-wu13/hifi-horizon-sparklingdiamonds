@@ -4,6 +4,43 @@ import './ProductCard.scss';
 const ProductCards = ({ products }) => {
   const navigate = useNavigate();
 
+  const handleCompareClick = (productId) => {
+    // Hent eksisterende produkter fra sessionStorage
+    const stored = sessionStorage.getItem('compareProducts');
+    let existingProducts = [];
+    
+    if (stored) {
+      try {
+        existingProducts = JSON.parse(stored);
+        if (!Array.isArray(existingProducts)) {
+          existingProducts = [];
+        }
+      } catch (e) {
+        console.error('Fejl ved parsing af compareProducts:', e);
+        existingProducts = [];
+      }
+    }
+
+    // Tjek om produktet allerede er i sammenligningen
+    const productIdStr = productId.toString();
+    if (!existingProducts.includes(productIdStr)) {
+      // Tilføj det nye produkt (maksimalt 3 produkter)
+      existingProducts.push(productIdStr);
+      
+      // Max 3 produkter
+      if (existingProducts.length > 3) {
+        existingProducts = existingProducts.slice(-3); // Behold de seneste 3
+      }
+      
+      // Gem i sessionStorage
+      sessionStorage.setItem('compareProducts', JSON.stringify(existingProducts));
+    }
+
+    // Naviger til sammenligning med alle produkter
+    const urlParams = existingProducts.map(id => `product=${id}`).join('&');
+    navigate(`/compare?${urlParams}`);
+  };
+
   return (
     <div className="product-cards">
       {products.map(product => (
@@ -18,7 +55,7 @@ const ProductCards = ({ products }) => {
               className="product-card__compare"
               onClick={(e) => {
                 e.preventDefault(); // stop klik på kortet
-                navigate(`/compare?product=${product.id}`);
+                handleCompareClick(product.id);
               }}
             >
               <span>Compare</span>
@@ -45,7 +82,7 @@ const ProductCards = ({ products }) => {
               </p>
 
               <div className="product-card__bottom">
-                {/* Add to Cart (forhindrer navigation til produktdetaljer) */}
+                {/* Tilføj til kurv (forhindrer navigation til produktdetaljer) */}
                 <button
                   className="product-card__button"
                   onClick={(e) => {
