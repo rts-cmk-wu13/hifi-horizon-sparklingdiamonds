@@ -1,0 +1,22 @@
+@use '../../global-styling/colors' as col;
+
+.my__cart{
+
+    .item__info{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .cart__total{
+        display: flex;
+        justify-self: flex-end;
+        margin-block: 1rem;
+        font-weight: bold;
+    }
+}
+
+
+.payment__shipping{
+    border-top: 2px solid col.$light-Grey;
+    padding: 1rem;
+}
