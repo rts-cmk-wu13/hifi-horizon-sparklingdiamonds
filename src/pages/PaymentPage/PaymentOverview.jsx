@@ -1,3 +1,7 @@
+import { Form } from "react-router"
+
+import '../ContactPage/contact.scss';
+
 export default function PaymentOverview() {
 
     return (
@@ -41,6 +45,18 @@ export default function PaymentOverview() {
                       <span className="cart__total">Total Price £9,598.00 </span>
     </div>  
       </section>
+            <Form className="terms-and-conditions">
+                <div className="form__checkbox">
+                    <input className="checkbox" type="checkbox" name="marketing" />
+                    <label> Subscribe to newsletter</label>
+                </div>
+                <div className="form__checkbox">
+                    <input className="checkbox" type="checkbox" name="marketing" required />
+                    <label> I accept the terms of trade (read in new window)</label>
+                </div>
+
+                  <button type="submit" className="form__btn flex__start">Checkout</button>
+            </Form>
         </>
     )
 }

@@ -41,10 +41,10 @@ const router = createBrowserRouter([
       { path: "thanks", element: <Thanks />},
       { path: "invoice", element: <InvoicePage /> },
       { path: "more-info", element: <MoreInfo /> },
-      { path: "payment", element: <PaymentPage /> },
       { path: "compare", element: <ProductComparison /> },
       { path: "product/:id", element: <ProductDetails /> },
       { path: "products", element: <ProductPage /> },
+      { path: "payment", element: <PaymentPage /> },
       {
         path: "profile",
         element: (
