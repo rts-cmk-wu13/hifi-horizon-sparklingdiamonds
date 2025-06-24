@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './CartPage.scss';
+import Breadcrumb from '../../components/breadcrumb/breadcrumb';
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -250,7 +251,7 @@ const CartPage = () => {
         {/* Cart Header */}
         <div className="cart-header">
           <h1 className="cart-header__title">Cart</h1>
-          
+
           {/* Continue Shopping Button */}
           <div className="cart-continue-shopping">
               <Link to="/products" className="cart-continue-shopping__button">
@@ -258,6 +259,8 @@ const CartPage = () => {
               </Link>
             </div>
         </div>
+
+        <Breadcrumb />
 
         {/* Cart Content */}
         {cartItems.length === 0 ? (
