@@ -2,15 +2,19 @@
 
 .my__cart{
 
-    .item__info{
+    .cart__item{
         display: flex;
         justify-content: space-between;
     }
 
-    .cart__total{
+    .price{
         display: flex;
+        gap: 0.5rem;
         justify-self: flex-end;
         margin-block: 1rem;
+    }
+    
+    .total{
         font-weight: bold;
     }
 }
@@ -42,7 +46,7 @@
 .shipping__nav__list{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding-inline: 2rem;
+    padding-block: 2rem;
 
     .shipping__link{
         border: 1px solid grey;
@@ -61,5 +65,28 @@
 /* -------------------------------------- */
 
 .shipping__title{
-    padding: 2rem;
+    padding-block: 1rem;
+}
+/* ---------------------------------------- */
+
+
+.payment__methods{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr ;
+
+    .icon{
+        font-size: 3rem;
+    }
+
+    .cards{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 1rem;
+    }
+}
+
+.cards:nth-child(2){
+   border-top: 1px solid col.$light-Grey;
+   border-bottom: 1px solid col.$light-Grey;
 }

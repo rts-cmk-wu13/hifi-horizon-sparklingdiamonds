@@ -20,8 +20,8 @@ export default function PaymentPage() {
 
         <PaymentInfo/>
         <ShippingMethod/>
-        <PaymentOverview/>
         <PaymentMethod/>
+        <PaymentOverview/>
         
     </>
     );
