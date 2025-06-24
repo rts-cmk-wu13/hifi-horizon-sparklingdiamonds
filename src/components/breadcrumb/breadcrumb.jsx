@@ -13,21 +13,25 @@ const Breadcrumb = () => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // Find aktivt trin – matcher også hvis der er trailing slash eller query parametre
   const currentStepIndex = steps.findIndex(step =>
     currentPath.startsWith(step.path)
   );
 
   return (
     <div className="breadcrumb">
-      {steps.map((step, index) => (
-        <div key={step.path} className={`breadcrumb__step ${index === currentStepIndex ? 'active' : ''}`}>
-          <div className="breadcrumb__icon">{step.icon}</div>
-          {index < steps.length - 1 && <div className="breadcrumb__line" />}
-        </div>
-      ))}
+      <div className="breadcrumb__line">
+        {steps.map((step, index) => (
+          <div
+            key={step.path}
+            className={`breadcrumb__step ${index === currentStepIndex ? 'active' : ''}`}
+          >
+            <div className="breadcrumb__icon">{step.icon}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default Breadcrumb;
+
