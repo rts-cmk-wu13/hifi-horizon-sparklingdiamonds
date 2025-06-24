@@ -6,22 +6,22 @@ const PostOfficeSelector = () => {
   const postOffices = [
     {
       id: '1',
-      address: 'Postoffice - 4 Leah Close, Edinburgh, United Kingdom',
-      lat: 55.9533,
-      lng: -3.1883
-    },
+      address: 'Fedex Station Jernholmen 28, 32, 2650 Hvidovre',
+      lat:  55.6085083,
+      lng: 12.4881724
+    }, 
     {
       id: '2',
-      address: 'Postoffice - 7 The Old School House, Edinburgh, United Kingdom',
-      lat: 55.9500,
-      lng: -3.1800
-    },
+      address: 'ServicePoint FedEx Gl. Kongevej 163, 1850 Frederiksberg C',
+      lat: 55.67978169857385,
+      lng: 12.534127833446929
+    }, 
     {
       id: '3',
-      address: 'Postoffice - 28 Thwaites Oak Close, Edinburgh, United Kingdom',
-      lat: 55.9600,
-      lng: -3.1900
-    }
+      address: 'Mail Boxes Etc. København Østerbrogade 226, st. tv, 2100 København',
+      lat: 55.713792100672876,
+      lng: 12.577886900000001
+    } 
   ];
 
   const selectedPostOffice = postOffices.find(po => po.id === selected);

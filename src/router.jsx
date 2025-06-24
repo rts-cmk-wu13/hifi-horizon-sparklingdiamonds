@@ -23,6 +23,9 @@ import SuccessfulRegistration from "./pages/CreateAccount/SuccessfulRegistration
 import EditProfile from "./pages/Profile/EditProfile.jsx";
 import MyOrders from "./pages/Profile/MyOrders.jsx";
 import MyProfile from "./pages/Profile/MyProfileInfo.jsx";
+import HomeDelivery from "./pages/PaymentPage/Shipping/HomeDelivery.jsx";
+import ClickAndCollect from "./pages/PaymentPage/Shipping/ClickAndCollect.jsx";
+import PostOfficeSelector from "./pages/PaymentPage/Shipping/PostOffice.jsx";
 
 
 
@@ -44,7 +47,13 @@ const router = createBrowserRouter([
       { path: "compare", element: <ProductComparison /> },
       { path: "product/:id", element: <ProductDetails /> },
       { path: "products", element: <ProductPage /> },
-      { path: "payment", element: <PaymentPage /> },
+      { path: "payment", element: <PaymentPage/> ,
+        children: [
+           { index:true, element: <HomeDelivery/>},
+           {path:'click-collect', element: <ClickAndCollect/>},
+           {path:'post-office', element: <PostOfficeSelector/>}
+        ]
+      },
       {
         path: "profile",
         element: (

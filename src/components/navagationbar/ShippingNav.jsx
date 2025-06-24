@@ -1,4 +1,5 @@
 import { NavLink } from "react-router"
+import { useLocation } from "react-router"
 import '../../pages/Profile/Profile.scss'
 
 export default function ShippingNav() {
@@ -7,11 +8,16 @@ export default function ShippingNav() {
         <>
          <nav >
                     <ul className="shipping__nav__list">
-                        <li><NavLink to='shipping-home' className="shipping__link" >
-                                Home delivery
+                        <li>
+                             <NavLink
+                             to="/payment"
+                             end
+                             className={({ isActive }) =>
+                            `shipping__link ${isActive ? "active" : ""}`}>
+                             Home delivery
                             </NavLink>
                         </li>
-                        <li><NavLink to="click-and-collect" className="shipping__link ">
+                        <li><NavLink to="click-collect" className="shipping__link ">
                                Click-and-collect
                             </NavLink>
                         </li>

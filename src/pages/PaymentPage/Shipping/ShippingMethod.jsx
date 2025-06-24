@@ -1,8 +1,7 @@
 import { Outlet } from "react-router";
 import ShippingNav from "../../../components/navagationbar/ShippingNav";
 import SectionHeader from "../../../components/SectionHeader";
-import ClickAndCollect from "./ClickAndCollect";
-import HomeDelivery from "./HomeDelivery";
+
 
 
 export default function ShippingMethod() {
@@ -17,7 +16,8 @@ export default function ShippingMethod() {
             />
 
             <div className="form">
-                <ShippingNav/>
+            <ShippingNav/>
+            <Outlet/>
             </div>
 
 

@@ -3,7 +3,7 @@ export default function ClickAndCollect () {
     return (
    <>
     <div className="location">
-        <input type="radio" name="location1" checked/>
+        <input type="radio" name="location1"/>
         <label htmlFor="location1">
             <div className="address">
                 Edinburgh
