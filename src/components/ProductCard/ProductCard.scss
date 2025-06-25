@@ -1,0 +1,136 @@
+.product-cards {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  flex: 1;
+}
+
+.product-card {
+  background-color: #f8f8f8;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s ease;
+   height: 25rem;
+
+  &:hover {
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.12);
+  }
+
+  &__compare {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    &-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  &__info {
+    text-align: center;
+    width: 100%;
+  }
+
+  &__name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  &__subtitle {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+
+  &__price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__button {
+    background-color: #ff7a00;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: #e96f00;
+    }
+  }
+
+  &__stock {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #222;
+    font-weight: 400;
+
+    .product-card__dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-left: 0.5rem;
+    }
+
+    .green {
+      background-color: green;
+    }
+
+    .orange {
+      background-color: orange;
+    }
+
+    .red {
+      background-color: red;
+    }
+  }
+}
+.product-card__link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.product__images__container{
+
+  min-width: 9rem;
+  min-height: 9rem;
+
+ 
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}

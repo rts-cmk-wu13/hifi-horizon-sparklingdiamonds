@@ -1,0 +1,34 @@
+
+@media (max-width: 601px) {
+ .menu nav, .menu ul, .menu li,.menu a{
+  display: none;
+}
+
+
+
+}
+ .menu nav, .menu ul, .menu li,.menu a{
+margin: auto;
+
+li{
+  justify-content: space-between;
+  text-align: center;
+}
+
+a{
+    text-align: center;
+}
+
+}
+.menu nav, .menu ul{
+  background-color: black;
+}
+
+
+.loguot__btn{
+background-color: transparent;
+color: white;
+border: none;
+  font-size: 3rem;
+}
+

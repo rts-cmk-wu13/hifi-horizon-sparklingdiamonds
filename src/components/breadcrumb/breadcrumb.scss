@@ -1,0 +1,55 @@
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  
+  .breadcrumb__line {
+    position: relative;
+    display: flex;
+    align-items: center;
+  
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 40px; // Halvdelen af step-bredden
+      right: 40px;
+      height: 36px;
+      background-color: #fff;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+  }
+  
+  .breadcrumb__step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.3s ease;
+    z-index: 2;
+  
+    &:not(:last-child) {
+      margin-right: 86px;
+    }
+  
+    &.active {
+      background-color: #495464;
+  
+      .breadcrumb__icon {
+        color: #fff;
+      }
+    }
+  }
+  
+  .breadcrumb__icon {
+    font-size: 1.5rem;
+    color: #495464;
+  }
+  

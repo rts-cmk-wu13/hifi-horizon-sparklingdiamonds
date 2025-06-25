@@ -1,0 +1,70 @@
+.OpeningTimeBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    grid-template-areas:
+        "a a a a b b b b"
+        "a a a a b b b b";
+
+    background-color: black;
+
+
+    justify-content: center;
+
+    p {
+        color: #F4F4F2;
+        font-size: 0.9rem;
+    }
+
+    h4,
+    h2 {
+        color: white;
+
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    h4 {
+        margin-top: 2rem;
+    }
+
+
+    .whatWeDo {
+        max-width: 31.5rem;
+        width: auto;
+        grid-area: a;
+        margin-left: 5rem;
+
+    }
+
+    .openHours {
+        max-width: 19rem;
+        width: auto;
+        grid-area: b;
+        margin-right: 5rem;
+
+    }
+
+}
+
+@media (max-width: 601px){
+    .OpeningTimeBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .whatWeDo{
+        margin-right: 5rem;
+    }
+
+    .openHours{
+        margin-left: 5rem;
+    }
+
+    .signUpInput{
+        
+    }
+}

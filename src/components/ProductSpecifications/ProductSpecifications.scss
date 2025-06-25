@@ -1,0 +1,121 @@
+
+.product-specifications {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+  
+    .specifications-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 2rem;
+      text-align: left;
+      letter-spacing: 0.5px;
+    }
+    
+    .specifications-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+  
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+  
+      .specification-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-bottom: 1px solid #e0e0e0;
+        transition: background-color 0.2s ease;
+  
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+        }
+  
+        &:hover {
+          background-color: #f8f9fa;
+        }
+  
+        &:last-child {
+          border-bottom: none;
+        }
+  
+        // Alternate row background for better readability
+        &:nth-child(even) {
+          background-color: #fafafa;
+  
+          &:hover {
+            background-color: #f0f1f2;
+          }
+        }
+  
+        .spec-label {
+          padding: 1rem 1.5rem;
+          font-weight: 600;
+          color: #555;
+          background-color: #f8f9fa;
+          border-right: 1px solid #e0e0e0;
+          font-size: 0.9rem;
+  
+          @media (max-width: 768px) {
+            border-right: none;
+            border-bottom: 1px solid #e0e0e0;
+            background-color: #f0f1f2;
+          }
+  
+          // Override background for even rows
+          .specification-row:nth-child(even) & {
+            background-color: #f0f1f2;
+          }
+        }
+  
+        .spec-value {
+          padding: 1rem 1.5rem;
+          color: #333;
+          font-size: 0.9rem;
+          line-height: 1.4;
+  
+          @media (max-width: 768px) {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  
+ 
+    @media (max-width: 480px) {
+      margin: 2rem auto;
+      
+      .specifications-title {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+      }
+  
+      .specifications-grid .specification-row {
+        .spec-label,
+        .spec-value {
+          padding: 0.75rem 1rem;
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
+  
+
+  @media print {
+    .product-specifications {
+      .specifications-grid .specification-row {
+        &:hover {
+          background-color: transparent !important;
+        }
+  
+        &:nth-child(even) {
+          background-color: #f9f9f9 !important;
+        }
+      }
+    }
+  }

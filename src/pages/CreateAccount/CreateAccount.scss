@@ -1,0 +1,46 @@
+@use '/src/pages/ContactPage/contact.scss';
+@use '/src/global-styling/colors' as col;
+
+@mixin checkbox {
+
+  input[type="checkbox"] {
+    background: #F4F4F2;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    margin-right: 1rem;
+  }
+}
+
+
+.form {
+
+   .flex__start{
+      display: flex;
+      justify-self: start;
+  }
+
+  .form__row1{
+   display: grid;
+   grid-template-columns: 15% 1fr 4%;
+  }
+  .form__row2{
+   display: grid;
+   grid-template-columns: 1fr 1fr 11%;
+  }
+   
+ 
+    .form__checkbox{
+
+      @mixin checkbox{
+      
+    }
+  }
+
+
+
+
+
+}
+

@@ -1,0 +1,24 @@
+@use '/src/global-styling/colors' as col;
+@use '/src/pages/CreateAccount/CreateAccount.scss' as create;
+
+
+.primary__btn{
+background-color: col.$bold-color;
+color: col.$main-Page-Color;
+border: none;
+padding: 0.5rem 1rem;
+}
+
+.error{
+    color:col.$error-color;
+    font-size: small;
+}
+
+
+.form__checkbox{
+    @include create.checkbox 
+}
+
+.newcustomer{
+    text-align: center;
+}

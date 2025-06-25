@@ -1,0 +1,18 @@
+.menu nav, .menu ul, .menu li,.menu a{
+   
+
+display: flex;
+justify-content: space-around;
+padding: 0.3em;
+
+ul{
+max-width:31.25rem;
+/* width: 31.25rem; */
+
+li{
+    display: flex;
+}
+}
+ text-decoration: none;
+    color: white;
+}
