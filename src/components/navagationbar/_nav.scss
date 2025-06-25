@@ -1,5 +1,13 @@
 
-.menu nav, .menu ul, .menu li,.menu a{
+@media (max-width: 601px) {
+ .menu nav, .menu ul, .menu li,.menu a{
+  display: none;
+}
+
+
+
+}
+ .menu nav, .menu ul, .menu li,.menu a{
 margin: auto;
 
 li{
@@ -15,3 +23,4 @@ a{
 .menu nav, .menu ul{
   background-color: black;
 }
+  
