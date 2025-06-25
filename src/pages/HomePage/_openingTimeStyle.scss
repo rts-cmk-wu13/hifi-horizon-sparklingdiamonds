@@ -1,6 +1,7 @@
 .OpeningTimeBox {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
     grid-template-areas:
         "a a a a b b b b"
         "a a a a b b b b";
@@ -46,4 +47,24 @@
 
     }
 
+}
+
+@media (max-width: 601px){
+    .OpeningTimeBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .whatWeDo{
+        margin-right: 5rem;
+    }
+
+    .openHours{
+        margin-left: 5rem;
+    }
+
+    .signUpInput{
+        
+    }
 }
