@@ -1,16 +1,61 @@
 
-@media screen {
-    
-}
 
 .invoice__container>*{
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
+.invoice__container{
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+
+   .company,
+   .invoice{
+    margin-left: auto;
+   }
+
+   .item__description{
+    grid-column: 1/-1;
+   }
+
+   .invoice{
+    grid-column: 2/span 1;
+    
+    .invoice__title{
+      border-bottom: solid 2px rgb(197, 194, 194);
+    }
+
+    .invoice__info{
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+
+    }
+
+   }
+   
+   .total__container{
+    width: 100%;
+   }
+
+   .total{
+   margin-top: 2rem;
+   background-color: #495464;
+   color: white;
+   padding: 0.2rem 0.5rem;
+   }
+
+   .sub-total{
+    margin-left: auto;
+   }
+
+  
+}
+
+
 
 .rights{
     font-size: small;
     text-align: center;
     margin: 1rem;
+    grid-column: 1/-1;
 }
 
 
@@ -25,13 +70,14 @@
 .invoice-table th,
 .invoice-table td {
   padding: 12px;
-  border-bottom: 1px solid #ccc;
+ 
 }
 
 .invoice-table thead {
   border-bottom: 2px solid #000;
 }
 
-.invoice-table .alt {
-  background-color: #f2f2f2; /* Light grey for alternating row */
+tbody tr:nth-child(even) {
+  background-color: #f0f0f0; /* light grey */
 }
+
