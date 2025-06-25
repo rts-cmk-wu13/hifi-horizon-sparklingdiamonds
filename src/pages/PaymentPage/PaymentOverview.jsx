@@ -1,46 +1,67 @@
+import { Form } from "react-router"
+import '../ContactPage/contact.scss';
+
 export default function PaymentOverview() {
+
+      const cartInfo = JSON.parse(sessionStorage.getItem('cart'))
+      console.log(cartInfo); 
+      const deliveryPrice = 4
+
 
     return (
         <>
 
          <section className="my__cart form">
 
-                 <h2>Payment overview</h2>
-    <div className="payment__item">
-                 <ul>
-                    <li><div className="item__info">
-                            <p>Auralic Aries G2.1 Streamer</p>
-                            <span>£4,799.00</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="item__info">
-                            <p>Auralic Aries G2.1 Streamer</p>
-                            <span>£4,799.00</span>
-                        </div>
-                    </li>
-                 </ul>
+        <h2>Payment overview</h2>
+            <div>
+                {cartInfo.map((item) => (
+                    <div  className="cart__item" key={item.id}>
+                        <p>{item.name}</p>
+                        <p><span>{item.currency}</span>{item.price}</p>
+                    </div>
+                ))}
+               <p className="price">
+                    Price  <span className="total">  £  {cartInfo.reduce((acc, item) => acc + Number(item.price), 0).toLocaleString()}
+                    </span>
+                </p>
+            </div>
 
-                 <span className="cart__total">Price £9,598.00 </span>
-
-    </div>
     <div className="payment__shipping">      
-                    <ul>
-                        <li>
-                            <div className="item__info">
-                                <p>Delivery price</p>
-                                <span>£4.00</span>
-                            </div>
-                            <div className="item__info">
-                                <p>VAT</p>
-                                <span>£1,919.60</span>
-                            </div>
-                        </li>
-                    </ul>
+        <div className="cart__item">
+            <p>Delivery price</p>
+            <span>£ {deliveryPrice}</span>
+        </div>
+        <div className="cart__item">
+            <p>VAT</p>
+            <span> £ {(cartInfo.reduce((acc, item) => acc + Number(item.price) , 0).toLocaleString()) * 250}</span>
+        </div>
 
-                      <span className="cart__total">Total Price £9,598.00 </span>
+        <p className="price">
+            Price  <span className="total">  £  {cartInfo.reduce((acc, item) => acc + Number(item.price) + deliveryPrice, 0).toLocaleString()}</span>
+        </p>
+                   
     </div>  
+
       </section>
+            <Form className="terms-and-conditions">
+                <div className="form__checkbox">
+                    <input className="checkbox" type="checkbox" name="marketing" />
+                    <label> Subscribe to newsletter</label>
+                </div>
+                <div className="form__checkbox">
+                    <input className="checkbox" type="checkbox" name="marketing" required />
+                    <label> I accept the terms of trade (read in new window)</label>
+                </div>
+
+                  <button type="submit" className="form__btn flex__start">Checkout</button>
+            </Form>
         </>
     )
 }
+
+//acc: accumulator (running total)
+
+//Number(item.price): converts price to number in case it's a string
+
+//.toLocaleString(): formats the number with commas (e.g., 9,598)

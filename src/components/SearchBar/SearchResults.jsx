@@ -60,7 +60,7 @@ export default function SearchedResults() {
               <img
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = "./broken-img.png";
+                  e.target.src = "produktbilleder/cd_afspillere/creek_evo_cd.jpg";
                 }}
                 src={product.colorOptions[0].img}
                 alt={product.name}
