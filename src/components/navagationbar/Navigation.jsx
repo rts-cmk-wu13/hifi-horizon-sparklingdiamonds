@@ -9,7 +9,7 @@ import { FaUser,  FaShoppingCart  } from "react-icons/fa";
 
 import LogoutButton from '../LogoutButton'
 import SearchBar from '../SearchBar/SearchBar'
-import BottomBurgerMenu from './burger.jsx'
+
 
 
 
@@ -38,7 +38,6 @@ export default function Navegation() {
 
         </ul>
       </nav>
-<BottomBurgerMenu/>
     </>
 
 
