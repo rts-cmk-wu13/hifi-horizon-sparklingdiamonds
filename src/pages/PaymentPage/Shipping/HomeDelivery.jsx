@@ -1,24 +1,23 @@
-import ShippingNav from "../../../components/navagationbar/ShippingNav"
-import ClickAndCollect from "./ClickAndCollect"
-import PostOfficeSelector from "./PostOffice"
+import { useState } from "react";
 
 export default function HomeDelivery() {
+  const paymentInfo = JSON.parse(sessionStorage.getItem("paymentInfo") || "null");
+  const [info] = useState(paymentInfo); // you don't need setInfo if you're not updating it
 
-    return (
+  return (
+    <div className="home__shipping">
+      <h4 className="shipping__title">Your order will be shipped to</h4>
+
+      {info ? (
         <>
-
-        <div className="home__shipping">
-            <h4 className="shipping__title">Your order will be shipped to</h4>
-
-            <p>61 Church St</p>
-            <p>Berwick-upon-Tweed</p>
-            <p>Northumberland TD15 1EE</p>
-            <p>United Kingdom</p>
-
-        </div>
-
-      
-        
+          <p>{info.address}</p>
+          <p>{info.city}</p>
+          <p>{info.zip}</p>
+          <p>{info.country}</p>
         </>
-    )
+      ) : (
+        <p>No address registered</p>
+      )}
+    </div>
+  );
 }

@@ -1,5 +1,6 @@
 import { useAuth } from "../context/AuthContext"
 import { useNavigate } from "react-router";
+import { GiExitDoor } from "react-icons/gi";
 
 export default function LogoutButton() {
 
@@ -12,6 +13,6 @@ export default function LogoutButton() {
     }
 
     return token ?  (
-        <button className="prymary__btn" onClick={handleLogout}>Log out</button>
+        <button className="loguot__btn" onClick={handleLogout}><GiExitDoor /></button>
     )   : null
 }

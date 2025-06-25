@@ -1,6 +1,7 @@
 .product-page {
   padding: 2rem;
 
+
   h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -11,4 +12,10 @@
     gap: 2rem;
     align-items: flex-start;
   }
+
+  .search__results__title{
+    grid-column: 1/-1;
+    text-align: center;
+  }
 }
+

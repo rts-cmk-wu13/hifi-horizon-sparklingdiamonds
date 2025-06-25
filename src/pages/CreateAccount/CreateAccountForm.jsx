@@ -12,7 +12,7 @@ export default function CreateAccountForm() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-      async function handleSignUp(event) {
+    async function handleSignUp(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);

@@ -1,12 +1,15 @@
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { useEffect, useState } from 'react';
 import { fetchSearch } from '../../api/authService';
-import '../ProductCard/ProductCard.scss';
+import '../../pages/ProductPage/ProductPage.scss'
+
 
 import { GoDotFill } from "react-icons/go";
 import Loader from '../../components/Loader/Loader.jsx';
 
 export default function SearchedResults() {
+
+  const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get("query") || "";
@@ -50,11 +53,11 @@ export default function SearchedResults() {
   }
 
   return (
-    <div className="search__results">
+    <div className="product-cards">
       <h1 className="search__results__title">Search Results for: "{query}"</h1>
 
       {products.map((product) => (
-        <section key={product.id} className="productcards__card searched__product-card">
+        <section key={product.id} className="product-card">
           <div className='product__images__container'>
             {product?.colorOptions?.[0]?.img && (
               <img
@@ -68,12 +71,17 @@ export default function SearchedResults() {
             )}
           </div>
 
-          <div className='product__info'>
-            <p>{product.name}</p>
-            <p>{product.subtitle}</p>
-            <p>{product.price} <span>{product.currency}</span></p>
-            <div className='button-stock__container'>
-              <button>Add to Cart</button>
+          <div className='product-card__info'>
+            <p className='product-card__name'>{product.name}</p>
+            <p className='product-card__subtitle'>{product.subtitle}</p>
+            <p className='product-card__price'>{product.price} <span>{product.currency}</span></p>
+            <div className='product-card__bottom'>
+              <button className='product-card__button'
+               onClick={(e) => {
+                    e.preventDefault();
+                    navigate(`/cart?add=${product.id}`);
+                  }}
+              >Add to Cart</button>
               <span>
                 {product.inStock ? (
                   <div>

@@ -58,18 +58,20 @@ const ProductCards = ({ products }) => {
             </div>
 
             {/* Produktbillede med fallback */}
-            <img
-              src={product.image}
-              alt={product.name}
-              className="product-card__image"
-              onError={(e) => {
-                e.target.onerror = null; // Forhindrer infinite loop
-                e.target.src = "produktbilleder/cd_afspillere/creek_evo_cd.jpg"; // Fallback billede
-              }}
-            />
+            <div className='product__images__container'>
+              <img
+                src={product.image}
+                alt={product.name}
+                className="product-card__image"
+                onError={(e) => {
+                  e.target.onerror = null; // Forhindrer infinite loop
+                  e.target.src = "produktbilleder/cd_afspillere/creek_evo_cd.jpg"; // Fallback billede
+                }}
+              />
+            </div>
 
             <div className="product-card__info">
-              <h2 className="product-card__name">{product.name}</h2>
+              <p className="product-card__name">{product.name}</p>
               <p className="product-card__subtitle">{product.subtitle}</p>
               <p className="product-card__price">
                 £ {product.price.toLocaleString(undefined, { minimumFractionDigits: 2 })}
