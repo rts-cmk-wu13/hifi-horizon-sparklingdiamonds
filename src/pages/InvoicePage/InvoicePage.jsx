@@ -10,16 +10,23 @@ export default function InvoicePage() {
     const itemInfo = JSON.parse(sessionStorage.getItem('cart'))
 
     const today = new Date();
-    const options = { weekday: 'long' }; // 'short' for "Mon", "Tue", etc.
-    const dayName = today.toLocaleDateString('en-GB', options);
+    const options = { 
+    weekday: 'long',   // Wednesday
+    day: 'numeric',    // 25
+    month: 'long',     // July
+    year: 'numeric'    // 2025
+    };
+    const day = today.toLocaleDateString('en-GB', options);
+    console.log(day);  // Wednesday, 25 July 2025
 
-   console.log(dayName)
 
 
     const deliveryPrice = 4
-    const totalPrice = itemInfo.reduce((acc, item) => acc + Number(item.price), 0)
+    const totalPrice = itemInfo.reduce((acc, item) => acc + Number(item.price) * Number(item.quantity), 0);
     const vat = totalPrice * .25
     const totalWithDelivery = totalPrice + deliveryPrice + vat ;
+    const subTotal = itemInfo.price*itemInfo.quantity
+
 
 
 
@@ -52,13 +59,14 @@ export default function InvoicePage() {
                 </div>
             </div>
             <div className="invoice">
+                <h3 className='invoice__title'>Invoice</h3>
                 <span className='invoice__info'>
                     <p>Order number</p>
                     <p>238475691</p>
                 </span>
                 <span className='invoice__info'>
                     <p>Date</p>
-                    <p>{dayName}</p>
+                    <p>{day}</p>
                 </span>
                 <span className='invoice__info'>
                     <p>Shop</p>
@@ -70,44 +78,51 @@ export default function InvoicePage() {
                 </span>
             </div>
             <div className="item__description">
-                {itemInfo.map((item) => (
-                   <table class="invoice-table">
+                 <table className="invoice-table">
                     
-            <thead key={item.id}>
-                <tr>
+            <thead>
+                <tr >
                 <th>Item Description</th>
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Total</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                <td>{item.name}</td>
-                <td>{item.currency}{item.price}</td>
-                <td>{item.quantity}</td>
-                <td>{item.currency}{item.price*item.quantity}</td>
+                {itemInfo.map((item, index) => {
+            const subTotal = item.price * item.quantity;
+            return (
+                <tbody key={item.id}>
+                <tr style={{ backgroundColor: index % 2 === 1 ? '#f0f0f0' : 'transparent' }}>
+                    <td>{item.name}</td>
+                    <td>{item.currency}{item.price}</td>
+                    <td>{item.quantity}</td>
+                    <td>{item.currency}{subTotal}</td>  {/* Use the per-item subtotal here */}
                 </tr>
-            </tbody>
-            </table>  
-                ))}
-               
+                </tbody>
+            )
+            })}
+
+                </table>  
             </div>
 
-            <div className="item__total">
+            <div className="invoice total__container">
               
-                <div className='total__info'>
-                    <p className='sub-total'>subtotal:</p>
-                    <p>£ {totalPrice}</p>
+                <div className='invoice__info'>
+                    <p >SUBTOTAL:</p>
+                    <p className='sub-total'>£ {totalPrice}</p>
                 </div>
-                <div className='total__info'>
-                    <p className='sub-total'>DELIVERY</p>
-                    <p>£ {deliveryPrice}</p>
+                <div className='invoice__info'>
+                    <p>VAT</p>
+                    <p  className='sub-total'>£ {vat}</p>
+                </div>
+                <div className='invoice__info'>
+                    <p >DELIVERY</p>
+                    <p className='sub-total'>£ {deliveryPrice}</p>
                 </div>
 
-                <div className='avtive'>
+                <div className='invoice__info total'>
                     <p>TOTAL</p>
-                    <p> £ {totalWithDelivery}</p>
+                    <p className='sub-total'> £ {totalWithDelivery}</p>
                 </div>
             </div>
 
