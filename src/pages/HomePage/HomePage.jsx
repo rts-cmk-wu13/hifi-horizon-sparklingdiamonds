@@ -40,11 +40,11 @@ export default function Home() {
 
     return (
         <>
-            <article className="home">
-                <div className="heroImgHome">
+              <div className="heroImgHome">
                     <img src='/hero.svg' alt="to be hero_img" />
                 </div>
 
+            <article className="home">
                 <section className="popularProductSec">
                     <div className="title_btn_box">
                         <h2>POPULAR PRODUCTS</h2>
