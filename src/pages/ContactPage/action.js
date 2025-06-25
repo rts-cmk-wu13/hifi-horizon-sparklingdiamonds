@@ -9,9 +9,9 @@ const contactSchema = z.object({
 });
 
 export async function handleSubmit({ request }) {
+
   const formData = await request.formData();
   const data = Object.fromEntries(formData.entries());
-
   const result = contactSchema.safeParse(data);
 
   if (!result.success) {

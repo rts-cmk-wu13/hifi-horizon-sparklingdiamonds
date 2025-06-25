@@ -4,6 +4,7 @@ import { fetchSearch } from '../../api/authService';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
+
 export default function SearchBar() {
     const [input, setInput] = useState("")
     const [error, setError] = useState(null)
