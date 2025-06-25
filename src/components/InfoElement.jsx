@@ -1,8 +1,8 @@
-
+import React from 'react';
  "../pages/Profile/EditProfile";
 
 
-export default function InfoElement({icon,child,elementName,elementInfo,addressChild}) {
+export default function InfoElement({icon,elementName,elementInfo,addressChild}) {
 
     return (
         <>
