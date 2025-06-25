@@ -1,5 +1,6 @@
 import "./HomePage.scss";
-import { NavLink } from 'react-router';
+import '../ProductPage/ProductPage.scss'
+import { NavLink, Link } from 'react-router';
 import { useState, useEffect } from 'react';
 import ProductCards from '../../components/ProductCard/ProductCard'; // Antager at din ProductCards komponent er i samme mappe
 //random comment
@@ -23,6 +24,9 @@ export default function Home() {
                     .filter(product => product.popularity === "popular")
                     .slice(0, 4);
                 setPopularProducts(popularItems);
+
+                console.log(popularItems);
+                
             } catch (err) {
                 console.error('Fejl ved hentning af populære produkter:', err);
                 setError(err.message);
@@ -48,7 +52,7 @@ export default function Home() {
                             <button className="btn" id="shade">See all products</button>
                         </NavLink>
                     </div>
-                    <div className="product_container">
+                    <div className="product-cards">
                         {loading && (
                             <div className="loading-message">
                                 <p>Indlæser populære produkter...</p>
@@ -59,9 +63,80 @@ export default function Home() {
                                 <p>Fejl ved indlæsning af produkter: {error}</p>
                             </div>
                         )}
-                        {!loading && !error && popularProducts.length > 0 && (
-                            <ProductCards products={popularProducts} />
+                       {!loading && !error && popularProducts.length > 0 && (
+                        popularProducts.map((product) => (
+                           
+                             <Link
+          to={`/product/${product.id}`}
+          key={product.id}
+          className="product-card__link"
+        >
+          <div className="product-card">
+            <div
+              className="product-card__compare"
+              onClick={(e) => {
+                e.preventDefault();
+                handleCompareClick(product.id);
+              }}
+            >
+              <span>Compare</span>
+              <img
+                src="sliders.svg"
+                alt="Compare icon"
+                className="product-card__compare-icon"
+              />
+            </div>
+
+            {/* Produktbillede med fallback */}
+            <div className='product__images__container'>
+              <img
+                src="produktbilleder/cd_afspillere/creek_evo_cd.jpg"
+                alt={product.name}
+                className="product-card__image"
+                onError={(e) => {
+                  e.target.onerror = null; // Forhindrer infinite loop
+                  e.target.src = "produktbilleder/cd_afspillere/creek_evo_cd.jpg"; // Fallback billede
+                }}
+              />
+            </div>
+
+            <div className="product-card__info">
+              <p className="product-card__name">{product.name}</p>
+              <p className="product-card__subtitle">{product.subtitle}</p>
+              <p className="product-card__price">
+                £ {product.price.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+              </p>
+
+              <div className="product-card__bottom">
+                <button
+                  className="product-card__button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate(`/cart?add=${product.id}`);
+                  }}
+                >
+                  Add to cart
+                </button>
+
+                <div className="product-card__stock">
+                  {product.stockStatus}
+                  <span
+                    className={`product-card__dot ${
+                      product.stockStatus.toLowerCase().includes('in stock')
+                        ? 'green'
+                        : product.stockStatus.toLowerCase().includes('few')
+                        ? 'orange'
+                        : 'red'
+                    }`}
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Link>
+                        ))
                         )}
+
                         {!loading && !error && popularProducts.length === 0 && (
                             <div className="no-products-message">
                                 <p>Ingen populære produkter fundet.</p>
