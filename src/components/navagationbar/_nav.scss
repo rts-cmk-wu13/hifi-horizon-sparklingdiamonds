@@ -1,5 +1,13 @@
 
-.menu nav, .menu ul, .menu li,.menu a{
+@media (max-width: 601px) {
+ .menu nav, .menu ul, .menu li,.menu a{
+  display: none;
+}
+
+
+
+}
+ .menu nav, .menu ul, .menu li,.menu a{
 margin: auto;
 
 li{
@@ -16,9 +24,11 @@ a{
   background-color: black;
 }
 
+
 .loguot__btn{
 background-color: transparent;
 color: white;
 border: none;
   font-size: 3rem;
 }
+

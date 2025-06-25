@@ -71,6 +71,8 @@ export default function Footer() {
 
             </div>
             </section>
+
+        
         </>
     )
 }
