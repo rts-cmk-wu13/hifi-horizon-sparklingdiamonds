@@ -1,88 +1,83 @@
-    /* 600px for tablet */
-   @media screen and (max-width: 600px){
+@media (max-width: 601px) {
+  .bottom-menu-container {
+  
+    align-items: center;
 
-.menu nav, .menu ul, .menu li,.menu a{
-display: none;
-
-li{
-  justify-content: space-between;
-  text-align: center;
-}
-
-}
-
-
-
-            }  /*  480px for phone */
-
-     /*        .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #111;
-  color: white;
-  position: relative;
-
-  .nav-logo {
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-
-  .nav-links {
     display: flex;
-    list-style: none;
-    gap: 2rem;
-
-    li a {
-      color: white;
-      text-decoration: none;
-    }
-  }
-
-  .burger {
-    display: none;
     flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
+    justify-content: space-evenly;
 
-    div {
-      width: 25px;
-      height: 3px;
-      background: white;
-    }
-  }
-}
+    width: 100%;
+    max-width: 600px;
 
-// --- Responsive styles below ---
-@media (max-width: 450px) {
-  .navbar {
-    flex-direction: column;
-    padding-bottom: 3rem;
+
     position: fixed;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #111;
+    left: 15%;
+    transform: translateX(-50%);
     z-index: 999;
+  
 
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
-      padding-bottom: 1rem;
+    .burger-toggle-menu, .ToprofileBTN a, .ToCartBTN a, .search-icon{
+      background-color: none;
+      color: white;
+      border: none;
+      font-size: 2.5rem;
+      cursor: pointer;
+      z-index: 1001;
+      margin-left: 1.3em;
+
     }
 
-    &.open .nav-links {
-      display: flex;
-    }
+  }
 
-    .burger {
-      display: flex;
-      margin-top: 0.5rem;
+  .menu-drawer {
+  background-color: black;
+    color: white;
+    max-width: fit-content;
+    display: flex;
+    flex-direction: column;
+ justify-content: end;
+    overflow: hidden;
+    max-height: 0;
+
+
+    transition: max-height 0.3s ease-out;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+
+    a {
+      padding: 1rem;
+      width: 100%;
+      text-align: right;
+      text-decoration: none;
+      color: white;
+  
+border: none;
+      &:hover {
+        background-color: black;
+      }
     }
   }
+
+  .menu-drawer.open {
+    max-height: 300px;
+    max-width: fit-content;
+    transition: max-height 0.3s ease-in;
+  }
+.search-bar {
+  margin-top: 10px;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
 }
- */
+
+}
+@media (min-width: 602px) {
+  
+  .bottom-menu-container{
+   display: none;
+  }
+}
