@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { editUser, fetchUserById } from "../../api/authService";
 import { parseJwt } from "../../api/authService";
+import React from 'react';
 
 import Loader from "../../components/Loader/Loader";
 import {Form } from "react-router";
