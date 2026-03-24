@@ -1,6 +1,5 @@
 import { Form, useNavigate } from "react-router"
 import '../ContactPage/contact.scss';
-import { z } from 'zod';
 import { useState } from "react";
 
 
@@ -32,15 +31,12 @@ export default function PaymentOverview() {
         return; // don't navigate
         }
 
-
         try {
         navigate("/invoice");
         } catch (err) {
         setError("Navigation error: " + err.message);
         }
     }
-    
-
 
     return (
         <>
@@ -54,22 +50,21 @@ export default function PaymentOverview() {
                         </div>
                     ))}
                     <p className="price">
-                        Price <span className="total"> £ {totalPrice.toLocaleString()}</span>
+                        Price <span className="total">{totalPrice.toLocaleString()} kr.</span>
                     </p>
                 </div>
 
                 <div className="payment__shipping">
                     <div className="cart__item">
                         <p>Delivery price</p>
-                        <span>£ {deliveryPrice}</span>
+                        <span>{deliveryPrice} kr.</span>
                     </div>
                     <div className="cart__item">
-                        <p>VAT</p>
-                        <span> £ {vat.toLocaleString()}</span>
+                        <p>MOMS</p>
+                        <span>{vat.toLocaleString()} kr.</span>
                     </div>
-
                     <p className="price total">
-                       Total Price <span className="total"> £ {totalWithDelivery.toLocaleString()}</span>
+                       Total Price <span className="total">{totalWithDelivery.toLocaleString()} kr.</span>
                     </p>
                 </div>
             </section>

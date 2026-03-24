@@ -109,20 +109,20 @@ export default function InvoicePage() {
               
                 <div className='invoice__info'>
                     <p >SUBTOTAL:</p>
-                    <p className='sub-total'>£ {totalPrice}</p>
+                    <p className='sub-total'>{totalPrice} kr.</p>
                 </div>
                 <div className='invoice__info'>
                     <p>VAT</p>
-                    <p  className='sub-total'>£ {vat}</p>
+                    <p  className='sub-total'>{vat} kr.</p>
                 </div>
                 <div className='invoice__info'>
                     <p >DELIVERY</p>
-                    <p className='sub-total'>£ {deliveryPrice}</p>
+                    <p className='sub-total'>{deliveryPrice} kr.</p>
                 </div>
 
                 <div className='invoice__info total'>
                     <p>TOTAL</p>
-                    <p className='sub-total'> £ {totalWithDelivery}</p>
+                    <p className='sub-total'> {totalWithDelivery} kr.</p>
                 </div>
             </div>
 

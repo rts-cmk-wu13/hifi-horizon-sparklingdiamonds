@@ -74,7 +74,7 @@ const ProductCards = ({ products }) => {
               <p className="product-card__name">{product.name}</p>
               <p className="product-card__subtitle">{product.subtitle}</p>
               <p className="product-card__price">
-                £ {product.price.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+               {product.price.toLocaleString(undefined, { minimumFractionDigits: 2 })} kr.
               </p>
 
               <div className="product-card__bottom">
